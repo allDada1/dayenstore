@@ -42,6 +42,24 @@
     if (variant) requestStateText.classList.add(`is-${variant}`);
   }
 
+  function isInlineImageUrl(value){
+    return String(value || '').trim().startsWith('data:image/');
+  }
+
+  function setImageFieldValue(input, value, label){
+    if (!input) return;
+    const raw = String(value || '').trim();
+    input.dataset.rawValue = raw;
+    input.value = isInlineImageUrl(raw) ? `${label} загружено` : raw;
+  }
+
+  function getImageFieldValue(input){
+    if (!input) return '';
+    const raw = String(input.dataset.rawValue || '').trim();
+    if (raw && isInlineImageUrl(raw)) return raw;
+    return String(input.value || '').trim();
+  }
+
 
   function humanizeApplyError(code){
     const map = {
@@ -315,7 +333,7 @@
         const aboutEl = document.getElementById('requestAbout');
 
         if (usernameEl) usernameEl.value = request.shop_slug || '';
-        if (avatarUrlEl) avatarUrlEl.value = request.avatar_url || '';
+        setImageFieldValue(avatarUrlEl, request.avatar_url || '', 'Фото магазина');
         if (shopNameEl) shopNameEl.value = request.shop_name || '';
         if (contactsEl) contactsEl.value = request.contacts || '';
         if (aboutEl) aboutEl.value = request.about || '';
@@ -352,7 +370,7 @@
 
   async function applySeller(){
     const shop_slug = document.getElementById('username')?.value.trim() || '';
-    const avatar_url = document.getElementById('avatarUrl')?.value.trim() || '';
+    const avatar_url = getImageFieldValue(document.getElementById('avatarUrl'));
     const shop_name = document.getElementById('requestShopName')?.value.trim() || '';
     const contacts = document.getElementById('requestContacts')?.value.trim() || '';
     const about = document.getElementById('requestAbout')?.value.trim() || '';
@@ -405,6 +423,12 @@
 
   bindUpload('pickShopAvatarBtn', 'shopAvatarInput', 'clearShopAvatarBtn', 'shopAvatar', 'shopAvatarPreview', 'shopAvatarEmpty', 'Фото магазина');
   bindUpload('pickShopBannerBtn', 'shopBannerInput', 'clearShopBannerBtn', 'shopBanner', 'shopBannerPreview', 'shopBannerEmpty', 'Баннер');
+
+  document.getElementById('avatarUrl')?.addEventListener('input', (e) => {
+    const input = e.currentTarget;
+    if (!input) return;
+    input.dataset.rawValue = String(input.value || '').trim();
+  });
 
   document.addEventListener('click', (e)=>{
     if (e.target && e.target.id==='applyBtn') applySeller().catch(err=>msg(err.message || 'Не удалось отправить заявку.'));

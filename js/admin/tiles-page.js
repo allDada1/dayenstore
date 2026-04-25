@@ -40,6 +40,7 @@ function esc(s) {
   return String(s || "").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");
 }
 function token() { return (window.MarketAPI && MarketAPI.getToken) ? MarketAPI.getToken() : ""; }
+function isInlineImageUrl(value) { return String(value || "").trim().startsWith("data:image/"); }
 function normalizeSlug(s) {
   return String(s || "").trim().toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9\-_]/g, "");
 }
@@ -88,7 +89,7 @@ function showTileIcon(url) {
   }
   ui.catIconPreview.src = url;
   ui.catIconPreview.style.display = "";
-  ui.catIconText.textContent = url;
+  ui.catIconText.textContent = isInlineImageUrl(url) ? "Иконка загружена" : url;
 }
 function enterTileEditMode(tile){
   editingTileId = Number(tile.id);
