@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Store — Мои заказы</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/ui.css" />
+  <link rel="stylesheet" href="css/profile.css" />
+</head>
+<body>
+  <div id="headerMount" data-header="account"></div>
+  <div id="subbarMount" data-subbar="none"></div>
+
+  <main class="container profWrap">
+    <section class="pageHero pageHero--compact">
+      <div>
+        <div class="profEyebrow">Личный кабинет</div>
+        <h1 class="pageTitle">Мои заказы</h1>
+        <div class="sectionSub">История покупок, детали заказа, повторное оформление и отдельные страницы для просмотра по частям.</div>
+      </div>
+      <div class="pageHero__actions">
+        <a class="btn btn--ghost" href="profile.html">Назад в профиль</a>
+      </div>
+    </section>
+
+    <section class="ordersBlock" id="ordersBlock">
+      <div class="ordersTop">
+        <div>
+          <div class="ordersTitle">Список заказов</div>
+          <div class="muted" id="ordersMeta">Загрузка…</div>
+        </div>
+        <button class="btn" id="refreshOrdersBtn" type="button">Обновить</button>
+      </div>
+
+      <div class="ordersEmpty" id="ordersEmpty" hidden>
+        Пока заказов нет
+      </div>
+
+      <div class="ordersList" id="ordersList"></div>
+
+      <div class="ordersPager" id="ordersPager" hidden>
+        <button class="btn btn--ghost" id="ordersPrevBtn" type="button">Назад</button>
+        <div class="ordersPager__info" id="ordersPagerInfo">Страница 1</div>
+        <button class="btn btn--ghost" id="ordersNextBtn" type="button">Вперёд</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/shared/utils/helpers.js"></script>
+  <script src="js/shared/api/client.js"></script>
+  <script src="js/core/auth.js"></script>
+  <script src="js/core/storage.js"></script>
+  <script src="js/components/header/header-auth.js"></script>
+  <script src="js/components/header/header-ui.js"></script>
+  <script src="js/components/header/header.js"></script>
+  <script src="js/features/orders/profile-orders-api.js"></script>
+</body>
+</html>

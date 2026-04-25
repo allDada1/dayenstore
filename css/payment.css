@@ -1,0 +1,113 @@
+.paymentPage{ min-height:100vh; }
+
+.payWrap{ padding:26px 0; }
+.payCard{ padding:18px; border-radius:24px; border:1px solid rgba(255,255,255,.10); background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); box-shadow:0 24px 60px rgba(0,0,0,.25); }
+.payTop{ display:flex; justify-content:space-between; align-items:flex-end; gap:12px; flex-wrap:wrap; }
+.payTitle{ margin:0; }
+.paySecure{ padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.04); font-size:12px; font-weight:800; }
+.paySummary{ margin-top:14px; padding:14px; border-radius:18px; border:1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.03); display:flex; justify-content:space-between; gap:14px; align-items:flex-start; flex-wrap:wrap; }
+.paySumLine{ display:flex; gap:10px; align-items:baseline; line-height:1.35; }
+.paySummary__left{ display:grid; gap:6px; }
+.paySummary__right{ display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+.payBadge{ padding:6px 10px; border-radius:999px; font-size:12px; border:1px solid rgba(255,255,255,.14); background: rgba(0,0,0,.18); text-transform:lowercase; }
+
+.payGrid{ display:grid; grid-template-columns:minmax(0, 1.15fr) minmax(300px, .85fr); gap:18px; margin-top:16px; }
+@media (max-width:980px){ .payGrid{ grid-template-columns:1fr; } }
+.payLeft,.payRight{ display:grid; gap:14px; align-content:start; }
+
+.payMethods{ display:grid; gap:10px; }
+.payMethod{ display:flex; gap:12px; align-items:flex-start; padding:12px; border-radius:16px; border:1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.03); cursor:pointer; transition:border-color .16s ease, background .16s ease, transform .16s ease; }
+.payMethod input{ margin-top:4px; }
+.payMethod__t{ font-weight:700; }
+.payMethod.is-selected{ border-color: rgba(255,255,255,.22); background: rgba(255,255,255,.06); transform:translateY(-1px); }
+.payMethod:hover{ border-color: rgba(255,255,255,.20); }
+
+.payPane{ display:none; padding:14px; border-radius:20px; border:1px solid rgba(255,255,255,.10); background:rgba(0,0,0,.18); }
+.payPane.is-active{ display:block; }
+.paneTitle{ font-size:16px; font-weight:950; margin-bottom:12px; }
+.formGrid{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:12px; }
+@media (max-width:640px){ .formGrid{ grid-template-columns:1fr; } }
+.payPane .field{ display:grid; gap:8px; }
+.payPane .field--full{ grid-column:1 / -1; }
+.payPane .field span{ font-size:13px; font-weight:700; }
+.payPane .field input{
+  width:100%; height:48px; border-radius:14px; border:1px solid rgba(255,255,255,.12); outline:none;
+  background:rgba(255,255,255,.04); color:#fff; padding:0 14px; transition:border-color .16s ease, background .16s ease, box-shadow .16s ease;
+}
+.payPane .field input:focus{ border-color:rgba(255,255,255,.26); background:rgba(255,255,255,.06); box-shadow:0 0 0 3px rgba(255,255,255,.05); }
+.payPane .field.is-error input{ border-color:rgba(255,120,120,.7); }
+.payPane .fieldErr{ min-height:16px; font-size:12px; color:rgba(255,160,160,.96); }
+.checkLine{ margin-top:12px; display:flex; gap:10px; align-items:flex-start; font-size:13px; color:rgba(255,255,255,.78); }
+
+.paneBlock{ display:grid; grid-template-columns:130px 1fr; gap:16px; align-items:center; }
+.paneBlock--stack{ grid-template-columns:1fr; }
+@media (max-width:560px){ .paneBlock{ grid-template-columns:1fr; } }
+.paneStrong{ font-size:15px; font-weight:900; margin-bottom:4px; }
+.mockQr{
+  width:130px; height:130px; border-radius:18px; border:1px solid rgba(255,255,255,.14);
+  background:
+    linear-gradient(90deg, rgba(255,255,255,.92) 10px, transparent 10px) 0 0/26px 26px,
+    linear-gradient(rgba(255,255,255,.92) 10px, transparent 10px) 0 0/26px 26px,
+    linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.03));
+}
+.balanceCard{ padding:14px; border-radius:18px; border:1px solid rgba(255,255,255,.10); background:rgba(255,255,255,.04); }
+.balanceCard__sum{ font-size:28px; font-weight:950; margin-top:6px; }
+
+.payActions{ display:flex; gap:10px; flex-wrap:wrap; }
+.payStatus{ display:flex; gap:12px; align-items:center; padding:12px; border-radius:16px; border:1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.03); }
+.payStatus__t{ font-weight:700; margin-bottom:2px; }
+.payMsg{ min-height:20px; }
+.spinner{ width:18px; height:18px; border-radius:50%; border:2px solid rgba(255,255,255,.25); border-top-color: rgba(255,255,255,.75); animation: spin 0.9s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg);} }
+
+.cardVisual{
+  position:relative; min-height:220px; border-radius:26px; padding:18px; overflow:hidden;
+  border:1px solid rgba(255,255,255,.12);
+  background:
+    radial-gradient(circle at top right, rgba(130,120,255,.35), transparent 35%),
+    radial-gradient(circle at bottom left, rgba(80,180,255,.20), transparent 32%),
+    linear-gradient(160deg, rgba(20,24,38,.98), rgba(36,40,62,.96));
+  box-shadow:0 26px 60px rgba(0,0,0,.35);
+  transform-style:preserve-3d; transition:transform .35s ease;
+}
+.cardVisual.is-flipped .cardVisual__brand,
+.cardVisual.is-flipped .cardVisual__chip,
+.cardVisual.is-flipped .cardVisual__number,
+.cardVisual.is-flipped .cardVisual__meta{ opacity:0; pointer-events:none; }
+.cardVisual.is-flipped .cardVisual__back{ opacity:1; transform:rotateY(0); }
+.cardVisual__chip{ width:46px; height:34px; border-radius:10px; background:linear-gradient(145deg, rgba(255,224,125,.95), rgba(181,142,43,.95)); }
+.cardVisual__brand{ position:absolute; top:18px; right:18px; font-size:12px; letter-spacing:1.2px; font-weight:950; opacity:.8; }
+.cardVisual__number{ margin-top:32px; font-size:clamp(22px, 3vw, 30px); letter-spacing:2px; font-weight:950; }
+.cardVisual__meta{ margin-top:28px; display:flex; justify-content:space-between; gap:14px; }
+.cardVisual__label{ font-size:10px; color:rgba(255,255,255,.56); letter-spacing:1px; }
+.cardVisual__value{ font-size:14px; font-weight:800; margin-top:6px; }
+.cardVisual__back{
+  position:absolute; inset:0; padding:18px; opacity:0; transform:rotateY(180deg); transition:opacity .25s ease, transform .25s ease;
+}
+.cardVisual__stripe{ margin-top:18px; height:44px; background:rgba(0,0,0,.5); }
+.cardVisual__cvvBox{ margin-top:20px; margin-left:auto; width:140px; padding:10px 12px; border-radius:12px; background:rgba(255,255,255,.9); color:#111; display:grid; gap:4px; }
+.cardVisual__cvvBox span{ font-size:10px; letter-spacing:1px; opacity:.65; }
+.payHints{ display:grid; gap:10px; }
+.hintItem{ padding:12px 14px; border-radius:16px; border:1px solid rgba(255,255,255,.10); background:rgba(255,255,255,.03); color:rgba(255,255,255,.78); }
+
+.payOverlay{ position:fixed; inset:0; background: rgba(0,0,0,.55); display:flex; align-items:center; justify-content:center; padding:18px; z-index:9999; }
+.payModal{ width:min(560px, 100%); border-radius:22px; border:1px solid rgba(255,255,255,.14); background: rgba(10,10,12,.96); box-shadow: 0 30px 90px rgba(0,0,0,.55); overflow:hidden; }
+.payModal__head{ display:flex; justify-content:space-between; align-items:center; padding:14px 14px 10px; border-bottom:1px solid rgba(255,255,255,.10); }
+.payModal__title{ font-weight:950; letter-spacing:.2px; }
+.payModal__body{ padding:14px; }
+.payProgress{ padding:12px 14px 0; }
+.payProgress__bar{ height:8px; border-radius:999px; background: rgba(255,255,255,.08); overflow:hidden; }
+.payProgress__fill{ height:100%; width:0%; background: rgba(255,255,255,.40); transition: width .35s ease; }
+.paySteps{ display:flex; gap:10px; margin-top:10px; flex-wrap:wrap; }
+.payStep{ display:flex; gap:8px; align-items:center; font-size:12px; color: rgba(255,255,255,.72); }
+.payStep .dot{ width:10px; height:10px; border-radius:50%; background: rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.18); }
+.payStep.is-done{ color: rgba(255,255,255,.92); }
+.payStep.is-done .dot{ background: rgba(255,255,255,.62); }
+.payStep.is-active{ color: rgba(255,255,255,.92); }
+.payStep.is-active .dot{ background: rgba(255,255,255,.40); }
+.payBigStatus{ display:flex; gap:12px; align-items:center; padding:12px; border-radius:18px; border:1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.03); }
+.payModal__actions{ margin-top:12px; display:flex; gap:10px; flex-wrap:wrap; }
+.payBigStatus.is-success .spinner{ display:none; }
+.payBigStatus.is-success::before{ content:'✓'; width:18px; height:18px; display:grid; place-items:center; border-radius:50%; border:1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.08); }
+.payBigStatus.is-error .spinner{ display:none; }
+.payBigStatus.is-error::before{ content:'!'; width:18px; height:18px; display:grid; place-items:center; border-radius:50%; border:1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.08); }

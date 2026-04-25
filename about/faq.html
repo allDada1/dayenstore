@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Store — FAQ</title>
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/ui.css" />
+  <link rel="stylesheet" href="../css/home.css" />
+  <link rel="stylesheet" href="../css/aboutsait.css" />
+</head>
+<body class="aboutPage">
+<header class="topbar">
+  <div class="container topbar__inner topbar__playerok">
+    <a class="brand" href="../index.html">
+      <span class="brand__dot"></span>
+      <span class="brand__name">Store</span>
+    </a>
+
+    <nav class="topNav">
+      <a class="topNav__a" href="../index.html">Каталог</a>
+      <a class="topNav__a" href="support.html">Поддержка</a>
+    </nav>
+
+    <div class="topbar__actions">
+      <button class="iconBtn" id="cartBtn" type="button" title="Корзина">
+        🛒 <span class="badge" id="cartBadge" hidden>0</span>
+      </button>
+
+      <div class="dropdown userDrop" id="userDrop">
+        <button class="iconBtn dropdown__btn" type="button" id="profileBtn" title="Профиль">
+          👤 <span id="profileLabel">Войти</span>
+        </button>
+        <div class="dropdown__panel dropdown__panel--right">
+          <a href="../profile.html" id="goProfile">Профиль</a>
+          <a href="../admin-products.html" id="goAdmin" style="display:none;">Админ товары</a>
+          <a href="../login.html" id="goLogin">Вход</a>
+          <a href="../register.html" id="goReg">Регистрация</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container docWrap">
+  <div class="docPage">
+    <section class="docHero">
+      <div>
+        <div class="docPill">FAQ и быстрые ответы</div>
+        <h1>Ответы на частые вопросы без лишнего поиска</h1>
+        <p class="docLead">Я сделал эту страницу живой: тут есть быстрый поиск по вопросам, раскрывающиеся ответы и ссылки на нужные действия. Пользователь может сразу понять, куда идти — в чат, в форму проблемы или обратно в каталог.</p>
+        <div class="docAnchorRow">
+          <a class="docAnchor" href="support.html">В центр поддержки</a>
+          <a class="docAnchor" href="support-chat.html">Открыть чат</a>
+          <a class="docAnchor" href="report.html">Сообщить о проблеме</a>
+        </div>
+      </div>
+
+      <div class="docHeroStats">
+        <div class="docMiniCard">
+          <div class="docMiniLabel">Разделов</div>
+          <div class="docMiniValue">6</div>
+          <div class="docMiniNote">Оплата, аккаунт, товары, продавцы, доставка и безопасность.</div>
+        </div>
+        <div class="docMiniCard">
+          <div class="docMiniLabel">Формат</div>
+          <div class="docMiniValue">Поиск + FAQ</div>
+          <div class="docMiniNote">Нужные ответы находятся быстрее, чем в длинном тексте.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="docCard">
+      <div class="docCardHeader">
+        <div>
+          <h2 class="docSectionTitle">Быстрый поиск по вопросам</h2>
+          <p class="docMuted">Введи слово вроде «оплата», «отзыв», «товар», «войти» или «корзина».</p>
+        </div>
+        <div class="docBadge" id="faqCounter">10 вопросов</div>
+      </div>
+
+      <div class="docControls">
+        <input class="docSearch" id="faqSearch" type="search" placeholder="Найти вопрос или ответ..." autocomplete="off" />
+      </div>
+
+      <div class="docQuickRow" style="margin-top:12px;">
+        <button class="docQuickBtn" type="button" data-faq-chip="оплата">Оплата</button>
+        <button class="docQuickBtn" type="button" data-faq-chip="аккаунт">Аккаунт</button>
+        <button class="docQuickBtn" type="button" data-faq-chip="товар">Товары</button>
+        <button class="docQuickBtn" type="button" data-faq-chip="отзыв">Отзывы</button>
+        <button class="docQuickBtn" type="button" data-faq-chip="доставка">Доставка</button>
+      </div>
+    </section>
+
+    <section class="docFaqList" id="faqList">
+      <details class="docFaqItem" data-faq="Как оплатить заказ Можно ли оплатить товар картой или через внутренний баланс оплата заказ карта баланс" open>
+        <summary>Как оплатить заказ?</summary>
+        <div class="docFaqBody">После перехода к оформлению заказа пользователь выбирает способ оплаты, проверяет состав корзины и завершает покупку. Если на странице оплаты что-то пошло не так, сразу открой <a class="docInlineLink" href="report.html">форму проблемы</a>.</div>
+      </details>
+
+      <details class="docFaqItem" data-faq="Почему товар не добавляется в корзину товар корзина добавить заказ" open>
+        <summary>Почему товар не добавляется в корзину?</summary>
+        <div class="docFaqBody">Обычно причина в том, что у товара закончился остаток, сломался скрипт на странице или не обновился фронтенд после правок. Сначала обнови страницу, потом проверь карточку товара ещё раз. Если ошибка осталась — напиши в <a class="docInlineLink" href="support-chat.html">чат поддержки</a>.</div>
+      </details>
+
+      <details class="docFaqItem" data-faq="Когда можно оставить отзыв отзыв заказ доставка получил товар">
+        <summary>Когда можно оставить отзыв?</summary>
+        <div class="docFaqBody">Отзыв доступен после того, как заказ действительно завершён и товар был получен. Это сделано для того, чтобы оценки ставили только реальные покупатели.</div>
+      </details>
+
+      <details class="docFaqItem" data-faq="Как открыть магазин продавца продавец профиль магазин">
+        <summary>Как открыть магазин продавца?</summary>
+        <div class="docFaqBody">Пользователь отправляет заявку продавца, после чего администрация рассматривает её. После одобрения в профиле появляется переход в панель продавца и управление товарами.</div>
+      </details>
+
+      <details class="docFaqItem" data-faq="Почему я не могу войти аккаунт пароль логин регистрация">
+        <summary>Почему я не могу войти в аккаунт?</summary>
+        <div class="docFaqBody">Проверь правильность почты и пароля, а также не открываешь ли ты сайт из старого сохранённого состояния браузера. Если вход всё ещё не проходит, попробуй повторную авторизацию и затем оставь заявку через раздел поддержки.</div>
+      </details>
+
+      <details class="docFaqItem" data-faq="Где посмотреть мои заказы профиль история заказов">
+        <summary>Где посмотреть мои заказы?</summary>
+        <div class="docFaqBody">Все заказы находятся в профиле пользователя. Там же доступна история статусов, повтор заказа и переходы к деталям покупки.</div>
+      </details>
+
+      <details class="docFaqItem" data-faq="Что делать если товар выглядит не так как в карточке товар описание продавец проблема">
+        <summary>Что делать, если товар выглядит не так, как в карточке?</summary>
+        <div class="docFaqBody">Сохрани ссылку на страницу, сделай скриншот и отправь жалобу через <a class="docInlineLink" href="report.html">форму проблемы</a>. Так поддержка быстрее поймёт, в чём именно расхождение.</div>
+      </details>
+
+      <details class="docFaqItem" data-faq="Как удалить сообщение из чата поддержки чат очистить сообщение">
+        <summary>Как очистить чат поддержки?</summary>
+        <div class="docFaqBody">На странице чата есть отдельная кнопка очистки истории. Она удаляет только локальные сообщения из браузера и не влияет на остальные разделы сайта.</div>
+      </details>
+
+      <details class="docFaqItem" data-faq="Есть ли доставка доставка цифровой товар передача заказа">
+        <summary>Есть ли доставка?</summary>
+        <div class="docFaqBody">Для цифровых товаров доставка как у обычного магазина не требуется: пользователь получает доступ или данные после обработки заказа. Для будущих категорий с физическими товарами этот блок можно будет расширить.</div>
+      </details>
+
+      <details class="docFaqItem" data-faq="Безопасно ли хранить данные на сайте безопасность политика конфиденциальности данные">
+        <summary>Безопасно ли хранить данные на сайте?</summary>
+        <div class="docFaqBody">Страница политики конфиденциальности объясняет, какие данные используются и зачем. Для проекта важно минимизировать хранение чувствительной информации и давать пользователю понятные правила работы.</div>
+      </details>
+    </section>
+
+    <div class="docEmpty" id="faqEmpty">Ничего не найдено. Попробуй другой запрос или перейди в чат поддержки.</div>
+  </div>
+</main>
+
+<footer class="siteFooter">
+  <div class="container siteFooter__grid">
+    <div>
+      <div class="siteFooter__brand">Store</div>
+      <div class="muted">Дипломный проект • MVP маркетплейса</div>
+      <div class="muted">v1</div>
+    </div>
+
+    <div>
+      <a class="siteFooter__h" href="about.html">О сайте</a>
+      <a class="siteFooter__a" href="how.html">Как работает</a>
+      <a class="siteFooter__a" href="rules.html">Правила</a>
+      <a class="siteFooter__a" href="partners.html">Партнёрам</a>
+    </div>
+
+    <div>
+      <a class="siteFooter__h" href="support.html">Поддержка</a>
+      <a class="siteFooter__a" href="faq.html">FAQ</a>
+      <a class="siteFooter__a" href="support-chat.html">Чат поддержки</a>
+      <a class="siteFooter__a" href="report.html">Сообщить о проблеме</a>
+    </div>
+
+    <div>
+      <a class="siteFooter__h" href="documents.html">Документы</a>
+      <a class="siteFooter__a" href="privacy.html">Политика конфиденциальности</a>
+      <a class="siteFooter__a" href="terms.html">Пользовательское соглашение</a>
+    </div>
+
+    <div>
+      <div class="siteFooter__h">Наши соцсети</div>
+      <div class="siteFooter__socials" aria-label="Социальные сети">
+        <a class="siteFooter__social siteFooter__social--telegram" href="https://t.me/netnetmy" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.5 4.5 18.4 19c-.2 1-.8 1.2-1.6.8l-4.6-3.4-2.2 2.1c-.2.3-.5.5-1 .5l.3-4.7 8.6-7.8c.4-.3-.1-.5-.6-.2L6.7 12.9 2.2 11.5c-1-.3-1-.9.2-1.3L20.1 3.4c.8-.3 1.5.2 1.4 1.1Z"/></svg>
+        </a>
+        <a class="siteFooter__social siteFooter__social--instagram" href="https://www.instagram.com/all_not_you?igsh=MW1zcHBobWZ6amhidg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2H7Zm10.4 1.7a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2.2a2.8 2.8 0 1 0 0 5.6 2.8 2.8 0 0 0 0-5.6Z"/></svg>
+        </a>
+        <a class="siteFooter__social siteFooter__social--tiktok" href="https://www.tiktok.com/@dadafafada?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3c.6 1.8 1.7 3 3.7 3.3v2.6a6.2 6.2 0 0 1-3.4-1v6.1a5 5 0 1 1-5-5h.5V12a2.5 2.5 0 1 0 1.9 2.4V3H14Z"/></svg>
+        </a>
+        <a class="siteFooter__social siteFooter__social--youtube" href="https://www.youtube.com/@dadafa1783" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2a2.9 2.9 0 0 0-2-2C17.8 4.7 12 4.7 12 4.7s-5.8 0-7.6.5a2.9 2.9 0 0 0-2 2A30 30 0 0 0 2 12a30 30 0 0 0 .4 4.8 2.9 2.9 0 0 0 2 2c1.8.5 7.6.5 7.6.5s5.8 0 7.6-.5a2.9 2.9 0 0 0 2-2A30 30 0 0 0 22 12a30 30 0 0 0-.4-4.8ZM10 15.5v-7l6 3.5-6 3.5Z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container siteFooter__bottom">
+    <div class="muted">© Market, 2026</div>
+    <div class="muted">Контакты: support@market.local</div>
+  </div>
+</footer>
+
+<script src="../js/shared/utils/helpers.js"></script>
+<script src="../js/shared/api/client.js"></script>
+<script>
+(function(){
+  const badge = document.getElementById("cartBadge");
+  if (window.MarketUtils && badge) MarketUtils.updateCartBadge(badge, { hideWhenZero: true });
+
+  const cartBtn = document.getElementById("cartBtn");
+  if (cartBtn) cartBtn.addEventListener("click", () => location.href = "../cart.html");
+
+  function wireDropdown(rootId){
+    const root = document.getElementById(rootId);
+    if (!root) return;
+    const btn = root.querySelector(".dropdown__btn");
+    if (!btn) return;
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      root.classList.toggle("is-open");
+    });
+  }
+  wireDropdown("userDrop");
+  document.addEventListener("click", () => {
+    document.querySelectorAll(".dropdown.is-open").forEach(d => d.classList.remove("is-open"));
+  });
+
+  let tokenOk = false;
+  try { tokenOk = !!(window.MarketAPI && typeof MarketAPI.getToken === "function" && MarketAPI.getToken()); } catch {}
+  let sessionOk = false;
+  try { const s = JSON.parse(localStorage.getItem("market_session")||"null"); sessionOk = !!(s && (s.id || s.email || s.name)); } catch {}
+  const isLoggedIn = tokenOk || sessionOk;
+  const profileBtn = document.getElementById("profileBtn");
+  const profileLabel = document.getElementById("profileLabel");
+  const goProfile = document.getElementById("goProfile");
+  const goLogin = document.getElementById("goLogin");
+  const goReg = document.getElementById("goReg");
+  if (profileLabel) profileLabel.textContent = isLoggedIn ? "Профиль" : "Войти";
+  if (goProfile) goProfile.style.display = isLoggedIn ? "" : "none";
+  if (goLogin) goLogin.style.display = isLoggedIn ? "none" : "";
+  if (goReg) goReg.style.display = isLoggedIn ? "none" : "";
+  if (profileBtn) profileBtn.addEventListener("click", () => {
+    location.href = isLoggedIn ? "../profile.html" : "../login.html";
+  });
+
+  const search = document.getElementById("faqSearch");
+  const chips = document.querySelectorAll("[data-faq-chip]");
+  const items = Array.from(document.querySelectorAll(".docFaqItem"));
+  const empty = document.getElementById("faqEmpty");
+  const counter = document.getElementById("faqCounter");
+
+  function applyFaqFilter(value){
+    const q = String(value || "").trim().toLowerCase();
+    let visible = 0;
+    items.forEach((item, idx) => {
+      const hay = (item.dataset.faq || item.textContent || "").toLowerCase();
+      const show = !q || hay.includes(q);
+      item.style.display = show ? "" : "none";
+      if (show && q && visible === 0) item.open = true;
+      if (show) visible += 1;
+    });
+    if (empty) empty.style.display = visible ? "none" : "block";
+    if (counter) counter.textContent = visible === 1 ? "1 вопрос" : `${visible} вопросов`;
+  }
+
+  if (search) search.addEventListener("input", () => applyFaqFilter(search.value));
+  chips.forEach((chip) => chip.addEventListener("click", () => {
+    if (!search) return;
+    search.value = chip.dataset.faqChip || "";
+    applyFaqFilter(search.value);
+    search.focus();
+  }));
+})();
+</script>
+</body>
+</html>

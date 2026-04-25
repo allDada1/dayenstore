@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Store — Избранное</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/ui.css" />
+  <link rel="stylesheet" href="css/home.css" />
+  <link rel="stylesheet" href="css/search.css" />
+</head>
+<body>
+<!-- SEARCH MODAL -->
+<div id="searchModal" class="searchModal">
+  <div class="searchModal__overlay"></div>
+
+  <div class="searchModal__box">
+    <div class="searchModal__top">
+      <input
+        id="searchModalInput"
+        class="searchModal__input"
+        placeholder="Поиск товаров..."
+      >
+
+      <button id="searchModalBtn" class="searchModal__btn">
+        Найти
+      </button>
+
+      <button id="searchModalClose" class="searchModal__close">
+        ✕
+      </button>
+    </div>
+
+    <div id="searchModalResults" class="searchModal__results"></div>
+  </div>
+</div>
+
+
+<div id="headerMount" data-header="catalog"></div>
+<div id="subbarMount" data-subbar="catalog"></div>
+
+<main class="container catalogPage">
+  <section class="hero hero--cat">
+    <div>
+      <div class="hero__title">Избранное</div>
+      <div class="hero__sub">Товары, которые ты лайкнул</div>
+      <div class="metaText" id="resultMeta">Товаров: —</div>
+    </div>
+
+    <div class="sortRow">
+      <div class="sortLabel">Сортировка</div>
+      <select class="sortSelect" id="sortSelect">
+        <option value="new_desc">Сначала новые</option>
+        <option value="price_asc">Цена: по возрастанию</option>
+        <option value="price_desc">Цена: по убыванию</option>
+        <option value="likes_desc">По лайкам</option>
+        <option value="rating_desc">По рейтингу</option>
+      </select>
+    </div>
+  </section>
+
+  <section class="grid" id="productsGrid"></section>
+
+  <section class="empty" id="emptyState" hidden>
+    <div class="empty__title">Пока пусто</div>
+    <div class="empty__sub">Поставь лайк на товарах — и они появятся здесь</div>
+    <button class="btn btn--primary" id="goCatalogBtn" type="button">В каталог</button>
+  </section>
+</main>
+
+<script src="js/shared/utils/helpers.js"></script>
+<script src="js/shared/api/client.js"></script>
+<script src="js/shared/product-normalizer.js"></script>
+<script src="js/components/product-card/product-card.js"></script>
+<script src="js/core/auth.js"></script>
+<script src="js/core/storage.js"></script>
+<script src="js/components/header/header.js"></script>
+
+<script src="js/features/catalog/search.js"></script>
+<script>
+(function(){
+  if (!window.HomeSearch || typeof window.HomeSearch.init !== "function") return;
+
+  window.HomeSearch.init({
+    appApi: {
+      getQuery: function(){
+        return document.getElementById("searchInput")?.value || "";
+      },
+      submitQuery: function(q){
+        const query = String(q || "").trim();
+        location.href = query
+          ? ("index.html?q=" + encodeURIComponent(query))
+          : "index.html";
+      }
+    },
+    catalogApi: {
+      previewProducts: async function(q){
+        const query = String(q || "").trim();
+        if (!query) return [];
+        try{
+          const res = await fetch("/api/search/suggest?q=" + encodeURIComponent(query));
+          if (!res.ok) return [];
+          const data = await res.json().catch(() => ({}));
+          return Array.isArray(data?.products) ? data.products : [];
+        }catch{
+          return [];
+        }
+      }
+    }
+  });
+})();
+</script>
+
+<script src="js/pages/favorites-page.js"></script>
+
+
+</body>
+</html>

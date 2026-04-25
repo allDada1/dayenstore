@@ -1,0 +1,638 @@
+.docWrap{
+  padding: 24px 0 40px;
+}
+
+.docPage{
+  display:grid;
+  gap:18px;
+}
+
+.docHero,
+.docCard,
+.docAction,
+.docFaqItem,
+.docMiniCard,
+.docReportItem,
+.chatShell,
+.docSidebar{
+  border:1px solid rgba(255,255,255,.08);
+  background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.025));
+  border-radius:24px;
+  box-shadow: 0 14px 34px rgba(0,0,0,.24);
+}
+
+.docHero{
+  padding:28px;
+  display:grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(260px, .8fr);
+  gap:18px;
+}
+
+.docHero h1,
+.docCard h2,
+.docSectionTitle,
+.docFaqItem summary{
+  margin:0;
+  color:#f5f7fb;
+}
+
+.docHero h1{
+  font-size: clamp(28px, 4vw, 40px);
+  line-height:1.06;
+}
+
+.docLead,
+.docMuted,
+.docCard p,
+.docCard li,
+.docAction p,
+.docMiniCard p,
+.docReportItem p,
+.chatHint,
+.docSidebar p,
+.docSidebar li{
+  color: rgba(255,255,255,.72);
+}
+
+.docLead{
+  font-size:16px;
+  line-height:1.65;
+  margin:14px 0 0;
+}
+
+.docHeroStats{
+  display:grid;
+  gap:12px;
+}
+
+.docMiniCard{
+  padding:16px 18px;
+}
+
+.docMiniLabel{
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:rgba(255,255,255,.52);
+}
+
+.docMiniValue{
+  margin-top:8px;
+  font-size:22px;
+  font-weight:800;
+  color:#fff;
+}
+
+.docMiniNote{
+  margin-top:6px;
+  font-size:13px;
+}
+
+.docGrid{
+  display:grid;
+  gap:16px;
+}
+
+.docGrid--3{
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.docGrid--2{
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, .9fr);
+}
+
+.docAction,
+.docCard,
+.docSidebar,
+.chatShell{
+  padding:22px;
+}
+
+.docAction{
+  display:grid;
+  gap:12px;
+}
+
+.docActionHeader{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.docActionIcon,
+.docPill,
+.docTag,
+.chatTag,
+.docAnchor,
+.docBadge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.05);
+  color:#eef2ff;
+}
+
+.docActionIcon{
+  width:42px;
+  height:42px;
+  font-size:18px;
+}
+
+.docPill,
+.docTag,
+.chatTag,
+.docAnchor,
+.docBadge{
+  padding:8px 12px;
+  font-size:13px;
+}
+
+.docBadge{
+  background: rgba(100,160,255,.12);
+}
+
+.docCardHeader{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:14px;
+  margin-bottom:16px;
+}
+
+.docSectionTitle{
+  font-size:22px;
+}
+
+.docList,
+.docLinkList,
+.docStatusList{
+  margin:0;
+  padding-left:18px;
+  display:grid;
+  gap:10px;
+}
+
+.docLinkList{
+  list-style:none;
+  padding-left:0;
+}
+
+.docLinkList a,
+.docInlineLink,
+.docLinkCard{
+  color:#eef2ff;
+  text-decoration:none;
+}
+
+.docLinkCard{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:14px 16px;
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.035);
+  transition: transform .18s ease, background .18s ease, border-color .18s ease;
+}
+
+.docLinkCard:hover,
+.docAnchor:hover,
+.docQuickBtn:hover,
+.docActionBtn:hover,
+.docSubmitBtn:hover,
+.docGhostBtn:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,.07);
+  border-color: rgba(255,255,255,.14);
+}
+
+.docControls,
+.docQuickRow,
+.docAnchorRow,
+.docChatQuick,
+.docMetaRow{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.docSearch,
+.docInput,
+.docTextarea,
+.docSelect{
+  width:100%;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.035);
+  color:#fff;
+  outline:none;
+  transition: border-color .18s ease, background .18s ease, box-shadow .18s ease;
+}
+
+.docSearch,
+.docInput,
+.docSelect{
+  padding:13px 15px;
+}
+
+.docTextarea{
+  min-height:150px;
+  padding:14px 15px;
+  resize:vertical;
+}
+
+.docSearch:focus,
+.docInput:focus,
+.docTextarea:focus,
+.docSelect:focus{
+  border-color: rgba(120,170,255,.35);
+  background: rgba(255,255,255,.05);
+  box-shadow: 0 0 0 3px rgba(80,120,255,.10);
+}
+
+.docQuickBtn,
+.docActionBtn,
+.docSubmitBtn,
+.docGhostBtn,
+.docAnchor{
+  border:1px solid rgba(255,255,255,.08);
+  cursor:pointer;
+  font:inherit;
+  transition: transform .18s ease, background .18s ease, border-color .18s ease;
+}
+
+.docQuickBtn,
+.docGhostBtn{
+  background: rgba(255,255,255,.035);
+  color:#fff;
+  padding:10px 14px;
+  border-radius:14px;
+}
+
+.docActionBtn,
+.docSubmitBtn{
+  background: linear-gradient(180deg, rgba(111,133,255,.28), rgba(81,100,199,.18));
+  color:#fff;
+  padding:12px 16px;
+  border-radius:16px;
+}
+
+.docGhostBtn{
+  background: transparent;
+}
+
+.docFaqList{
+  display:grid;
+  gap:12px;
+}
+
+.docFaqItem{
+  overflow:hidden;
+}
+
+.docFaqItem summary{
+  list-style:none;
+  cursor:pointer;
+  padding:18px 20px;
+  font-size:16px;
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+
+.docFaqItem summary::-webkit-details-marker{
+  display:none;
+}
+
+.docFaqItem summary::after{
+  content:"+";
+  font-size:20px;
+  line-height:1;
+  color:rgba(255,255,255,.62);
+}
+
+.docFaqItem[open] summary::after{
+  content:"−";
+}
+
+.docFaqBody{
+  padding:0 20px 18px;
+  color:rgba(255,255,255,.76);
+  line-height:1.65;
+}
+
+.docEmpty{
+  display:none;
+  padding:16px 18px;
+  border-radius:18px;
+  border:1px dashed rgba(255,255,255,.10);
+  color:rgba(255,255,255,.64);
+}
+
+.docForm{
+  display:grid;
+  gap:14px;
+}
+
+.docFormGrid{
+  display:grid;
+  gap:12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.docFormNote,
+.docSuccess,
+.docSecondaryText{
+  font-size:14px;
+  color:rgba(255,255,255,.66);
+}
+
+.docSuccess{
+  display:none;
+  padding:14px 16px;
+  border-radius:16px;
+  border:1px solid rgba(80,200,160,.18);
+  background: rgba(60,170,130,.10);
+  color:#def7ec;
+}
+
+.docReportList{
+  display:grid;
+  gap:12px;
+}
+
+.docReportItem{
+  padding:16px 18px;
+}
+
+.docReportItem h3{
+  margin:0 0 8px;
+  color:#fff;
+  font-size:16px;
+}
+
+.docReportMeta{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-bottom:8px;
+}
+
+.chatShell{
+  display:grid;
+  gap:16px;
+}
+
+.chatHead{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.chatBox{
+  min-height:420px;
+  max-height:520px;
+  overflow:auto;
+  padding:18px;
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.03);
+}
+
+.msg{
+  max-width:min(82%, 720px);
+  padding:12px 14px;
+  border-radius:18px;
+  margin:10px 0;
+  border:1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.05);
+}
+
+.msg--me{
+  margin-left:auto;
+  background: rgba(100,140,255,.15);
+}
+
+.msg__meta{
+  font-size:12px;
+  opacity:.74;
+  margin-bottom:7px;
+}
+
+.chatComposer{
+  display:grid;
+  grid-template-columns: 1fr auto;
+  gap:12px;
+}
+
+.docSidebar ul{
+  margin:12px 0 0;
+  padding-left:18px;
+}
+
+.docCount{
+  font-size:42px;
+  line-height:1;
+  font-weight:800;
+  color:#fff;
+}
+
+.docAnchorRow{
+  margin-top:8px;
+}
+
+@media (max-width: 980px){
+  .docHero,
+  .docGrid--2,
+  .docGrid--3,
+  .docFormGrid{
+    grid-template-columns: 1fr;
+  }
+
+  .chatComposer{
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px){
+  .docWrap{ padding:18px 0 28px; }
+  .docHero,
+  .docCard,
+  .docAction,
+  .chatShell,
+  .docSidebar{ padding:18px; border-radius:20px; }
+  .docHero h1{ font-size:28px; }
+  .docSectionTitle{ font-size:20px; }
+  .chatBox{ min-height:340px; }
+}
+
+
+/* =========================================================
+   ABOUT PAGE LAYOUT STABILIZATION
+   ========================================================= */
+body.aboutPage{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+body.aboutPage > main{
+  flex:1 0 auto;
+}
+
+body.aboutPage .docWrap,
+body.aboutPage .page-wrap{
+  width:min(var(--container-max, 1440px), calc(100% - 40px));
+  margin:0 auto;
+  padding:24px 0 40px;
+}
+
+body.aboutPage .page-wrap{
+  display:block;
+}
+
+body.aboutPage .page-shell{
+  display:grid;
+  gap:18px;
+}
+
+body.aboutPage .page-hero,
+body.aboutPage .page-card,
+body.aboutPage .stat-card,
+body.aboutPage .page-grid > .page-card,
+body.aboutPage .page-grid > .stat-card{
+  border:1px solid rgba(255,255,255,.08);
+  background:linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.025));
+  border-radius:24px;
+  box-shadow:0 14px 34px rgba(0,0,0,.24);
+}
+
+body.aboutPage .page-hero,
+body.aboutPage .page-card{
+  padding:24px;
+}
+
+body.aboutPage .page-hero h1,
+body.aboutPage .page-card h2,
+body.aboutPage .page-card h3,
+body.aboutPage .page-links strong,
+body.aboutPage .page-stats strong{
+  margin:0;
+  color:#f5f7fb;
+}
+
+body.aboutPage .page-hero h1{
+  font-size:clamp(28px, 4vw, 40px);
+  line-height:1.06;
+  margin-top:8px;
+}
+
+body.aboutPage .page-hero p,
+body.aboutPage .page-card p,
+body.aboutPage .page-card li,
+body.aboutPage .page-muted,
+body.aboutPage .page-links span,
+body.aboutPage .page-stats span,
+body.aboutPage .page-stats em{
+  color:rgba(255,255,255,.72);
+}
+
+body.aboutPage .page-hero__eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  min-height:34px;
+  padding:0 14px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.04);
+  color:#fff;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+body.aboutPage .page-links,
+body.aboutPage .page-grid,
+body.aboutPage .page-stats{
+  display:grid;
+  gap:16px;
+}
+
+body.aboutPage .page-links,
+body.aboutPage .page-grid{
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+}
+
+body.aboutPage .page-stats{
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+}
+
+body.aboutPage .page-link{
+  display:grid;
+  gap:8px;
+  min-height:150px;
+  padding:20px 22px;
+  transition:transform .18s ease, border-color .18s ease, background .18s ease, box-shadow .18s ease;
+}
+
+body.aboutPage .page-link:hover,
+body.aboutPage .page-card:hover,
+body.aboutPage .stat-card:hover{
+  transform:translateY(-2px);
+  border-color:rgba(124,140,255,.28);
+  box-shadow:0 18px 40px rgba(0,0,0,.28);
+}
+
+body.aboutPage .stat-card{
+  display:grid;
+  gap:10px;
+  padding:20px 22px;
+}
+
+body.aboutPage .stat-card em{
+  font-style:normal;
+  font-size:13px;
+}
+
+body.aboutPage .page-divider{
+  height:1px;
+  border:0;
+  background:rgba(255,255,255,.08);
+  margin:2px 0;
+}
+
+@media (max-width: 980px){
+  body.aboutPage .page-links,
+  body.aboutPage .page-grid,
+  body.aboutPage .page-stats{
+    grid-template-columns:1fr;
+  }
+}
+
+@media (max-width: 760px){
+  body.aboutPage .docWrap,
+  body.aboutPage .page-wrap{
+    width:calc(100% - 24px);
+    padding:18px 0 28px;
+  }
+
+  body.aboutPage .page-hero,
+  body.aboutPage .page-card,
+  body.aboutPage .stat-card,
+  body.aboutPage .page-link{
+    padding:18px;
+  }
+}

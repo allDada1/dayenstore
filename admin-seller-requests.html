@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Store — Админ: Запросы продавцов</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/ui.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+  <link rel="stylesheet" href="css/admin-seller-requests.css" />
+</head>
+<body class="mode-seller-requests">
+
+<header class="topbar">
+  <div class="container topbar__inner adminTopbar">
+    <a class="brand" href="index.html"><span class="brand__dot"></span><span class="brand__name">Store</span></a>
+
+    <div class="adminTopbar__center">
+      <div class="adminTopbar__title">Админ панель — Запросы продавцов</div>
+      <div class="adminTopbar__sub">Проверка заявок, одобрение и отказ без лишнего шума</div>
+    </div>
+
+    <div class="topbar__actions adminTopbar__actions">
+      <a class="linkBtn" href="admin-tiles.html">Плитки</a>
+      <a class="linkBtn" href="admin-products.html">Товары</a>
+      <a class="linkBtn" href="admin-orders.html">Заказы</a>
+      <a class="linkBtn is-active" href="admin-seller-requests.html">Запросы продавцов</a>
+      <a class="linkBtn" href="index.html">Главная</a>
+      <a class="linkBtn" href="profile.html">Профиль</a>
+    </div>
+  </div>
+</header>
+
+<main class="container admWrap">
+  <section class="admCard admSellerReqCard" id="admSellerRequests">
+    <div class="admHero admSellerReqHero">
+      <div>
+        <h1 class="admTitle">Запросы продавцов</h1>
+        <div class="muted admHero__sub">Все заявки на открытие магазина в одном месте — поиск, фильтры и быстрые действия.</div>
+      </div>
+      <div class="admHero__status" id="reqGuardText">Проверка доступа…</div>
+    </div>
+
+    <div class="admSellerReqNote" id="reqNote"></div>
+
+    <div class="admToolbar admToolbar--searchOnly">
+      <div class="field admToolbar__wide">
+        <div class="label">Поиск</div>
+        <input class="input" id="reqSearch" placeholder="ID, магазин, slug, пользователь, email" />
+      </div>
+    </div>
+
+    <div class="admToolbar admToolbar--filters admSellerReqFilters">
+      <div class="field">
+        <div class="label">Статус</div>
+        <select class="input js-nice-select" data-nice-select id="reqStatusFilter">
+          <option value="all">Все заявки</option>
+          <option value="pending">На рассмотрении</option>
+          <option value="approved">Одобрены</option>
+          <option value="rejected">Отклонены</option>
+        </select>
+      </div>
+      <div class="field">
+        <div class="label">Сортировка</div>
+        <select class="input js-nice-select" data-nice-select id="reqSort">
+          <option value="new">Сначала новые</option>
+          <option value="old">Сначала старые</option>
+          <option value="shop">По магазину</option>
+          <option value="status">По статусу</option>
+        </select>
+      </div>
+      <div class="admToolbar__action">
+        <button class="btn btn--ghost" id="reqResetBtn" type="button">Сбросить фильтры</button>
+      </div>
+    </div>
+
+    <div class="admSellerReqMeta" id="reqMeta">Заявок: 0</div>
+
+    <div class="list" id="reqList"></div>
+    <div class="admPagination" id="reqPagination"></div>
+  </section>
+</main>
+
+<script src="js/shared/utils/helpers.js"></script>
+<script src="js/shared/api/client.js"></script>
+<script src="js/ui/nice-select.js"></script>
+<script src="js/admin/seller-requests.api.js"></script>
+<script src="js/admin/seller-requests.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Store — Админ: Заказы</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/ui.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+  <link rel="stylesheet" href="css/admin-orders.css" />
+</head>
+<body class="mode-orders">
+<header class="topbar">
+  <div class="container topbar__inner adminTopbar adminOrdersTopbar">
+    <a class="brand" href="index.html"><span class="brand__dot"></span><span class="brand__name">Store</span></a>
+
+    <div class="adminTopbar__center">
+      <div class="adminTopbar__title">Админ-панель — Заказы</div>
+      <div class="adminTopbar__sub">Просмотр заказа и смена статуса без лишнего шума</div>
+    </div>
+
+    <div class="topbar__actions adminTopbar__actions">
+      <a class="linkBtn" href="admin-tiles.html">Плитки</a>
+      <a class="linkBtn" href="admin-products.html">Товары</a>
+      <a class="linkBtn is-active" href="admin-orders.html">Заказы</a>
+      <a class="linkBtn" href="admin-seller-requests.html">Запросы продавцов</a>
+      <a class="linkBtn" href="index.html">Главная</a>
+      <a class="linkBtn" href="profile.html">Профиль</a>
+    </div>
+  </div>
+</header>
+
+<main class="container admWrap">
+  <section class="admCard admOrdersPage" id="admOrders">
+    <div class="admHero admOrdersHero">
+      <div>
+        <h1 class="admTitle">Заказы — управление статусами</h1>
+        <div class="admHero__sub muted">Открой заказ по ID, посмотри состав и историю, затем обнови статус.</div>
+      </div>
+      <div class="admHero__status" id="admGuardText">Проверка доступа…</div>
+    </div>
+
+    <div class="admOrdersNotice" id="ordNote"></div>
+
+    <div class="admOrdersGrid">
+      <div class="admOrdersPanel">
+        <h2 class="admTitle2">Открыть заказ</h2>
+        <div class="field">
+          <div class="label">ID заказа</div>
+          <input class="input" id="ordId" placeholder="например: 1" inputmode="numeric" />
+        </div>
+        <div class="admOrdersHint">Можно нажать Enter прямо в поле ID.</div>
+        <div class="row">
+          <button class="btn btn--primary" id="ordLoadBtn" type="button">Открыть</button>
+          <button class="btn" id="ordRefreshBtn" type="button">Обновить</button>
+        </div>
+      </div>
+
+      <div class="admOrdersPanel">
+        <h2 class="admTitle2">Сменить статус</h2>
+        <div class="field">
+          <div class="label">Новый статус</div>
+          <select class="input js-nice-select" data-nice-select id="ordStatus">
+            <option value="pending">pending</option>
+            <option value="paid">paid</option>
+            <option value="shipped">shipped</option>
+            <option value="delivered">delivered</option>
+            <option value="cancelled">cancelled</option>
+          </select>
+        </div>
+        <div class="field">
+          <div class="label">Комментарий</div>
+          <input class="input" id="ordNoteInput" placeholder="Передано в доставку" />
+        </div>
+        <div class="admOrdersHint">Enter в комментарии применяет статус к открытому заказу.</div>
+        <div class="row"><button class="btn btn--primary" id="ordApplyBtn" type="button">Применить статус</button></div>
+      </div>
+    </div>
+
+    <div class="admOrdersCard list" id="ordCard" style="display:none;"></div>
+  </section>
+</main>
+
+<script src="js/shared/utils/helpers.js"></script>
+<script src="js/shared/api/client.js"></script>
+<script src="js/ui/nice-select.js"></script>
+<script src="js/admin/orders.js"></script>
+</body>
+</html>

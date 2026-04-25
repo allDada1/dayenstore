@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Store — Админ: Товары</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/ui.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body class="mode-products">
+<header class="topbar">
+  <div class="container topbar__inner topbar__playerok adminTopbar">
+    <a class="brand" href="index.html"><span class="brand__dot"></span><span class="brand__name">Store</span></a>
+
+    <div class="adminTopbar__center">
+      <div class="adminTopbar__title">Админ панель</div>
+      <div class="adminTopbar__sub">Управление товарами каталога</div>
+    </div>
+
+    <div class="topbar__actions adminTopbar__actions">
+      <a class="linkBtn" href="admin-tiles.html">Плитки</a>
+      <a class="linkBtn is-active" href="admin-products.html">Товары</a>
+      <a class="linkBtn" href="admin-orders.html">Заказы</a>
+      <a class="linkBtn" href="admin-seller-requests.html">Запросы продавцов</a>
+      <a class="linkBtn" href="index.html">Главная</a>
+      <a class="linkBtn" href="profile.html">Профиль</a>
+    </div>
+  </div>
+</header>
+<main class="container admWrap">
+  <section class="admCard" id="admProducts">
+    <div class="admHero">
+      <div>
+        <h1 class="admTitle">Товары</h1>
+        <div class="muted admHero__sub">Добавляй, редактируй и фильтруй карточки товаров.</div>
+      </div>
+      <div class="admHero__status" id="admGuardText">Проверка доступа…</div>
+    </div>
+    <div class="grid2">
+      <div class="field">
+        <div class="label">Раздел</div>
+        <select class="input js-nice-select" data-nice-select id="prodSection">
+          <option value="Игры">Игры</option>
+          <option value="Приложения">Приложения</option>
+          <option value="Мобильные игры">Мобильные игры</option>
+        </select>
+      </div>
+      <div class="field">
+        <div class="label">Плитка (категория)</div>
+        <select class="input js-nice-select" data-nice-select id="prodTile"></select>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="field"><div class="label">Название</div><input class="input" id="title" placeholder="God of War" /></div>
+      <div class="field"><div class="label">Цена</div><input class="input" id="price" inputmode="numeric" placeholder="17900" /></div>
+    </div>
+
+    <div class="grid2">
+      <div class="field"><div class="label">Описание</div><input class="input" id="description" placeholder="Ключ / аккаунт / товар" /></div>
+      <div class="field"><div class="label">Наличие (stock)</div><input class="input" id="stock" inputmode="numeric" placeholder="1" /></div>
+    </div>
+
+
+    <div class="field">
+  <div class="label">Доп. характеристики товара</div>
+  <input type="hidden" id="prodSpecs" />
+  <div class="specEditor" id="prodSpecsEditor">
+    <div class="specEditor__list" id="prodSpecsList"></div>
+    <div class="specEditor__actions">
+      <button class="btn btn--ghost" id="addSpecRowBtn" type="button">Добавить характеристику</button>
+    </div>
+  </div>
+  <div class="muted">Заполни название и значение. Пустые строки не сохраняются.</div>
+</div>
+    
+    <div class="field">
+      <div class="label">Фото товара (можно несколько)</div>
+      <div class="uploadBox" id="uploadBox">
+        <div class="muted">Перетащи несколько файлов сюда или нажми “Выбрать фото”</div>
+        <div class="row" style="margin-top:10px;">
+          <button class="btn" id="pickFilesBtn" type="button">Выбрать фото</button>
+          <button class="btn btn--ghost" id="clearImagesBtn" type="button">Очистить</button>
+          <input type="file" id="fileInput" accept="image/*" multiple hidden />
+          <div class="muted" id="imageUrlText">Фото не выбраны</div>
+        </div>
+        <div class="imageGrid" id="imageGrid"></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <button class="btn btn--primary" id="prodSaveBtn" type="button">Добавить</button>
+      <button class="btn" id="prodReloadBtn" type="button">Обновить список</button>
+      <button class="btn" id="prodCancelBtn" type="button">Сброс</button>
+      <div class="muted" id="prodNote"></div>
+    </div>
+
+    <div class="admToolbar admToolbar--searchOnly">
+      <div class="field admToolbar__wide">
+        <div class="label">Поиск</div>
+        <input class="input" id="prodSearch" placeholder="ID, название, категория, раздел" />
+      </div>
+    </div>
+
+    <div class="admToolbar admToolbar--filters">
+      <div class="field">
+        <div class="label">Раздел</div>
+        <select class="input js-nice-select" data-nice-select id="prodFilterSection">
+          <option value="">Все разделы</option>
+          <option value="Игры">Игры</option>
+          <option value="Приложения">Приложения</option>
+          <option value="Мобильные игры">Мобильные игры</option>
+        </select>
+      </div>
+      <div class="field">
+        <div class="label">Плитка</div>
+        <select class="input js-nice-select" data-nice-select id="prodFilterTile">
+          <option value="">Все плитки</option>
+        </select>
+      </div>
+      <div class="field">
+        <div class="label">Сортировка</div>
+        <select class="input js-nice-select" data-nice-select id="prodSort">
+          <option value="new">Сначала новые</option>
+          <option value="old">Сначала старые</option>
+          <option value="price_asc">Цена ↑</option>
+          <option value="price_desc">Цена ↓</option>
+          <option value="stock_desc">Остаток ↓</option>
+          <option value="title">По названию</option>
+        </select>
+      </div>
+      <div class="field admToolbar__action"><button class="btn btn--ghost" id="prodFiltersResetBtn" type="button">Сбросить фильтры</button></div>
+    </div>
+
+    <div class="muted" id="prodMeta">Товаров: 0</div>
+
+    <div class="list" id="prodList"></div>
+    <div class="admPagination" id="prodPagination"></div>
+  </section>
+</main>
+<script src="js/shared/utils/helpers.js"></script>
+<script src="js/shared/api/client.js"></script>
+<script src="js/ui/nice-select.js"></script>
+<script src="js/admin/products-page.js"></script>
+</body>
+</html>

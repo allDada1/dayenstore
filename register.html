@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Store — Регистрация</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/ui.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+</head>
+<body class="authPage authPage--compact">
+  <header class="topbar">
+    <div class="container topbar__inner authTopbar">
+      <a class="brand" href="index.html"><span class="brand__dot"></span><span class="brand__name">Store</span></a>
+      <nav class="authTopbar__nav">
+        <a class="topNav__a" href="index.html">Главная</a>
+        <a class="topNav__a" href="login.html">Вход</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container authShell authScene" data-auth-scene>
+    <section class="authCard authCard--solo" data-auth-panel="card">
+      <div class="authCard__head authReveal authCard__head--center" data-auth-reveal>
+        <div>
+          <h1 class="authTitle authTitle--main">Регистрация</h1>
+        </div>
+      </div>
+
+      <form id="registerForm" class="authForm" novalidate>
+        <div class="field authReveal" data-auth-reveal>
+          <div class="label">Имя</div>
+          <input id="name" class="input" type="text" placeholder="Ваше имя" autocomplete="name" />
+        </div>
+
+        <div class="field authReveal" data-auth-reveal>
+          <div class="label">Email</div>
+          <input id="email" class="input" type="email" placeholder="example@mail.com" autocomplete="email" />
+        </div>
+
+        <div class="field authReveal" data-auth-reveal>
+          <div class="label">Пароль</div>
+          <div class="authPasswordWrap">
+            <input id="password" class="input authPasswordInput" type="password" placeholder="Минимум 6 символов" autocomplete="new-password" />
+            <button
+              class="authPasswordToggle"
+              type="button"
+              data-toggle-password="#password"
+              aria-label="Показать пароль"
+              aria-pressed="false"
+            >
+              <span class="authEye authEye--closed" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M2 12s3.6-6 10-6 10 6 10 6-3.6 6-10 6-10-6-10-6Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/>
+                  <path d="M4 20 20 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+              </span>
+              <span class="authEye authEye--open" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M2 12s3.6-6 10-6 10 6 10 6-3.6 6-10 6-10-6-10-6Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <div class="field authReveal" data-auth-reveal>
+          <div class="label">Подтвердите пароль</div>
+          <div class="authPasswordWrap">
+            <input id="passwordConfirm" class="input authPasswordInput" type="password" placeholder="Повторите пароль" autocomplete="new-password" />
+            <button
+              class="authPasswordToggle"
+              type="button"
+              data-toggle-password="#passwordConfirm"
+              aria-label="Показать пароль"
+              aria-pressed="false"
+            >
+              <span class="authEye authEye--closed" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M2 12s3.6-6 10-6 10 6 10 6-3.6 6-10 6-10-6-10-6Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/>
+                  <path d="M4 20 20 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+              </span>
+              <span class="authEye authEye--open" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M2 12s3.6-6 10-6 10 6 10 6-3.6 6-10 6-10-6-10-6Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <div class="authStrength authReveal" data-auth-reveal>
+          <div class="authStrength__bar"><span id="passwordStrengthFill"></span></div>
+          <div class="authStrength__meta">
+            <span>Надёжность: <b id="passwordStrengthLabel">—</b></span>
+            <span id="passwordStrengthHint">Добавь буквы разного регистра, цифры и символы.</span>
+          </div>
+        </div>
+
+        <div class="row authActions authReveal" data-auth-reveal>
+          <button class="btn btn--primary authSubmit" id="registerSubmit" type="button">Создать аккаунт</button>
+          <a class="btn btn--ghost authSubmit" href="login.html">Уже есть аккаунт</a>
+        </div>
+
+        <div class="msg authMsg authReveal" data-auth-reveal id="registerMsg"></div>
+
+        <div class="authProviders authReveal" data-auth-reveal>
+          <div class="authProviders__label">или</div>
+          <div class="authProviders__grid authProviders__grid--two">
+            <div id="googleRegisterButton" class="authProviderMount authProviderMount--google" aria-label="Регистрация через Google"></div>
+
+            <button type="button" class="authProviderBtn authProviderBtn--telegram" data-provider="telegram" data-telegram-auth="register" aria-label="Регистрация через Telegram">
+              <span class="authProviderIcon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M21.4 4.6 18.3 19c-.2 1-.8 1.3-1.7.8l-4.7-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.4-4.9 9-8.2c.4-.3-.1-.5-.5-.2L6.4 12.8l-4.7-1.5c-1-.3-1-.9.2-1.4L20 3c.9-.4 1.7.2 1.4 1.6Z" fill="currentColor"/>
+                </svg>
+              </span>
+              <span>Telegram</span><span class="authProviderSoon">Скоро</span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="js/shared/utils/helpers.js"></script>
+<script src="js/core/auth.js"></script>
+<script src="js/shared/api/client.js"></script>
+<script src="js/pages/auth-animations.js"></script>
+<script src="js/pages/auth-ui.js"></script>
+<script src="js/pages/google-auth.js"></script>
+<script src="js/pages/telegram-auth.js"></script>
+<script src="js/features/auth/register-api.js"></script>
+</body>
+</html>

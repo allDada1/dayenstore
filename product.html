@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Store — Товар</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/ui.css" />
+  <link rel="stylesheet" href="css/home.css" />
+  <link rel="stylesheet" href="css/product.css" />
+  <link rel="stylesheet" href="css/search.css">
+</head>
+<body>
+<!-- SEARCH MODAL -->
+<div id="searchModal" class="searchModal">
+  <div class="searchModal__overlay"></div>
+
+  <div class="searchModal__box">
+    <div class="searchModal__top">
+      <input
+        id="searchModalInput"
+        class="searchModal__input"
+        placeholder="Поиск товаров..."
+      >
+
+      <button id="searchModalBtn" class="searchModal__btn">
+        Найти
+      </button>
+
+      <button id="searchModalClose" class="searchModal__close">
+        ✕
+      </button>
+    </div>
+
+    <div id="searchModalResults" class="searchModal__results"></div>
+  </div>
+</div>
+
+  <div id="headerMount" data-header="catalog"></div>
+  <div id="subbarMount" data-subbar="catalog"></div>
+
+  <main class="container pwrap">
+    <nav class="crumbs" aria-label="Хлебные крошки">
+      <a href="index.html">Главная</a>
+      <span>›</span>
+      <a href="#" id="crumbCat">—</a>
+      <span>›</span>
+      <span id="crumbTitle">—</span>
+    </nav>
+
+    <section class="productLayout">
+      <section class="galleryCard">
+        <div class="galleryHeroWrap">
+          <div class="p__media" id="imgBox">
+            <div class="p__tag" id="tagCat">—</div>
+            <button class="favBtn" id="likeBtn" type="button" aria-label="Добавить в избранное">
+              <span class="favBtn__icon">♥</span>
+              <span class="favBtn__text" id="likeText">♥ 0</span>
+            </button>
+
+            <button class="galleryNav galleryNav--prev" id="galleryPrev" type="button" aria-label="Предыдущее фото">‹</button>
+            <div class="heroBox" id="heroBox">
+              <div class="ph">Нет изображения</div>
+            </div>
+            <button class="galleryNav galleryNav--next" id="galleryNext" type="button" aria-label="Следующее фото">›</button>
+          </div>
+        </div>
+
+        <div class="thumbs" id="thumbs"></div>
+      </section>
+
+      <section class="infoCard">
+        <div class="infoHead">
+          <div>
+            <h1 class="p__title" id="title">—</h1>
+            
+          </div>
+          <div class="topChips" id="topChips"></div>
+        </div>
+
+
+        <div class="p__buy">
+          <div class="buyTopRow">
+            <div>
+              <div class="buyLabel">Цена</div>
+              <div class="p__price" id="price">—</div>
+              <div class="note" id="noteLine"></div>
+            </div>
+            <div class="stockBadge" id="stockBadge">—</div>
+          </div>
+
+          <div class="p__btns">
+            <button class="btn btn--primary" id="addBtn" type="button">В корзину</button>
+            <button class="btn" id="buyBtn" type="button">Купить сейчас</button>
+          </div>
+        </div>
+
+        <section class="contentCard">
+          <h2 class="sectionTitle">Описание</h2>
+          <div class="p__long" id="longText"></div>
+        </section>
+
+        <section class="contentCard">
+          <h2 class="sectionTitle">Характеристики</h2>
+          <div class="specGrid" id="specGrid"></div>
+        </section>
+
+        <section class="contentCard" id="includesCard" hidden>
+          <h2 class="sectionTitle">Что входит</h2>
+          <div class="includesList" id="includesList"></div>
+        </section>
+      </section>
+    </section>
+
+    <section class="reviewsSection">
+
+<h2>Отзывы покупателей</h2>
+
+<div id="reviewsList"></div>
+
+<div class="reviewGateNote" id="reviewGateNote">Оставить отзыв можно после покупки.</div>
+
+<div id="reviewForm">
+
+<select id="reviewRating">
+<option value="5">⭐⭐⭐⭐⭐</option>
+<option value="4">⭐⭐⭐⭐</option>
+<option value="3">⭐⭐⭐</option>
+<option value="2">⭐⭐</option>
+<option value="1">⭐</option>
+</select>
+
+<textarea id="reviewComment" placeholder="Напишите отзыв"></textarea>
+
+<button id="sendReview">Оставить отзыв</button>
+
+</div>
+
+</section>
+
+    <section class="similar contentCard" id="similarSection" hidden>
+      <div class="similar__top">
+        <div>
+          <div class="similar__title">Похожие товары</div>
+          <div class="similar__sub">Похожие позиции из той же категории</div>
+        </div>
+      </div>
+      <div class="similar__list" id="similarList"></div>
+    </section>
+
+    <section class="similar contentCard" id="boughtTogetherSection" hidden>
+      <div class="similar__top">
+        <div>
+          <div class="similar__title">С этим товаром покупают</div>
+          <div class="similar__sub">Подборка товаров, которые могут хорошо подойти вместе</div>
+        </div>
+      </div>
+      <div class="similar__list" id="boughtTogetherList"></div>
+    </section>
+
+    <section class="similar contentCard" id="recentSection" hidden>
+      <div class="similar__top">
+        <div>
+          <div class="similar__title">Вы недавно смотрели</div>
+          <div class="similar__sub">Последние товары, которые ты открывал</div>
+        </div>
+      </div>
+      <div class="similar__list" id="recentList"></div>
+    </section>
+  </main>
+
+  <!-- Product Gallery PRO -->
+  <div id="galleryModal" class="galleryModal hidden">
+    <div class="galleryOverlay"></div>
+
+    <div class="galleryContent">
+      <button class="galleryClose" id="galleryClose">✕</button>
+
+      <button class="galleryArrow galleryPrev" id="galleryPrevModal">‹</button>
+      <img id="galleryImageModal" src="" alt="">
+      <button class="galleryArrow galleryNext" id="galleryNextModal">›</button>
+
+      <div id="galleryThumbsModal" class="galleryThumbs"></div>
+    </div>
+  </div>
+
+<script src="js/shared/utils/helpers.js"></script>
+<script src="js/shared/api/client.js"></script>
+<script src="js/core/auth.js"></script>
+<script src="js/core/storage.js"></script>
+
+<script src="js/ui/ui.js"></script>
+<script src="js/components/header/header.js"></script>
+
+<script src="js/features/favorites/favorites.js"></script>
+<script src="js/features/recommendations/recommendations.js"></script>
+
+<script src="js/features/product/product-data.js"></script>
+<script src="js/features/product/product-gallery.js"></script>
+<script src="js/features/product/product-related.js"></script>
+<script src="js/features/product/product-reviews.js"></script>
+
+
+<script src="js/features/catalog/search.js"></script>
+<script>
+(function(){
+  if (!window.HomeSearch || typeof window.HomeSearch.init !== "function") return;
+
+  window.HomeSearch.init({
+    appApi: {
+      getQuery: function(){
+        return document.getElementById("searchInput")?.value || "";
+      },
+      submitQuery: function(q){
+        const query = String(q || "").trim();
+        location.href = query
+          ? ("index.html?q=" + encodeURIComponent(query))
+          : "index.html";
+      }
+    },
+    catalogApi: {
+      previewProducts: async function(q){
+        const query = String(q || "").trim();
+        if (!query) return [];
+        try{
+          const res = await fetch("/api/search/suggest?q=" + encodeURIComponent(query));
+          if (!res.ok) return [];
+          const data = await res.json().catch(() => ({}));
+          return Array.isArray(data?.products) ? data.products : [];
+        }catch{
+          return [];
+        }
+      }
+    }
+  });
+})();
+</script>
+
+<script src="js/pages/product-page.js"></script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Store</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/ui.css" />
+  <link rel="stylesheet" href="css/home.css" />
+  <link rel="stylesheet" href="css/search.css">
+</head>
+<body>
+<!-- SEARCH MODAL -->
+<div id="searchModal" class="searchModal">
+  <div class="searchModal__overlay"></div>
+
+  <div class="searchModal__box">
+
+    <div class="searchModal__top">
+      <input
+        id="searchModalInput"
+        class="searchModal__input"
+        placeholder="Поиск товаров..."
+      >
+
+      <button id="searchModalBtn" class="searchModal__btn">
+        Найти
+      </button>
+
+      <button id="searchModalClose" class="searchModal__close">
+        ✕
+      </button>
+    </div>
+
+    <div id="searchModalResults" class="searchModal__results"></div>
+
+  </div>
+</div>
+
+<div id="headerMount" data-header="main"></div>
+<div id="subbarMount" data-subbar="catalog"></div>
+
+<section class="container catShowcase" id="catShowcase">
+  <!-- JS нарисует 2+ секции: Игры / Приложения -->
+</section>
+
+<main class="container">
+  <section class="hero">
+    <div class="hero__left">
+      <div class="hero__title">Каталог</div>
+      <div class="hero__sub">Разные товары для разных целей</div>
+</div>
+
+    </div>
+
+    <div class="hero__right">
+      <div class="chips" id="categoryChips"></div>
+    </div>
+  </section>
+
+  <section class="grid" id="productsGrid"></section>
+  <section class="container popWrap" id="popularWrap" hidden>
+  <div class="popHead">
+    <div class="popTitle">Популярное</div>
+    <div class="popSub">Возможно вам понравится</div>
+  </div>
+
+  <div class="popBlock">
+    <div class="popBlock__title">Топ по лайкам</div>
+    <div class="popRow" id="popularLiked"></div>
+  </div>
+
+  <div class="popBlock">
+    <div class="popBlock__title">Топ по рейтингу</div>
+    <div class="popRow" id="popularRated"></div>
+  </div>
+
+  <section class="recentSection">
+
+<h2>Вы недавно смотрели</h2>
+
+<div id="recentProducts" class="productsGrid"></div>
+
+</section>
+</section>
+
+  <section class="empty" id="emptyState" hidden>
+    <div class="empty__title">Ничего не найдено</div>
+    <div class="empty__sub">Попробуйте другой запрос или выбери другую категорию</div>
+    <button class="btn btn--primary" id="resetBtn" type="button">Сбросить</button>
+  </section>
+
+</main>
+
+<footer class="siteFooter">
+  <div class="container siteFooter__grid">
+    <div>
+      <div class="siteFooter__brand">Store</div>
+      <div class="muted">Дипломный проект • D</div>
+      <div class="muted">v99</div>
+    </div>
+
+    <div>
+      <a class="siteFooter__h" href="/about/about.html">О сайте</a>
+      <a class="siteFooter__a" href="/about/how.html">Как работает</a>
+      <a class="siteFooter__a" href="/about/rules.html">Правила</a>
+      <a class="siteFooter__a" href="/about/partners.html">Партнёрам</a>
+    </div>
+
+    <div>
+      <a class="siteFooter__h" href="/about/support.html">Поддержка</a>
+      <a class="siteFooter__a" href="/about/faq.html">FAQ</a>
+      <a class="siteFooter__a" href="/about/support-chat.html">Чат поддержки</a>
+      <a class="siteFooter__a" href="/about/report.html">Сообщить о проблеме</a>
+    </div>
+
+    <div>
+      <a class="siteFooter__h" href="/about/documents.html">Документы</a>
+      <a class="siteFooter__a" href="/about/privacy.html">Политика конфиденциальности</a>
+      <a class="siteFooter__a" href="/about/terms.html">Пользовательское соглашение</a>
+    </div>
+
+    <div>
+      <div class="siteFooter__h">Наши соцсети</div>
+      <div class="siteFooter__socials" aria-label="Социальные сети">
+        <a class="siteFooter__social siteFooter__social--telegram" href="https://t.me/netnetmy" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.5 4.5 18.4 19c-.2 1-.8 1.2-1.6.8l-4.6-3.4-2.2 2.1c-.2.3-.5.5-1 .5l.3-4.7 8.6-7.8c.4-.3-.1-.5-.6-.2L6.7 12.9 2.2 11.5c-1-.3-1-.9.2-1.3L20.1 3.4c.8-.3 1.5.2 1.4 1.1Z"/></svg>
+        </a>
+        <a class="siteFooter__social siteFooter__social--instagram" href="https://www.instagram.com/all_not_you?igsh=MW1zcHBobWZ6amhidg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2H7Zm10.4 1.7a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2.2a2.8 2.8 0 1 0 0 5.6 2.8 2.8 0 0 0 0-5.6Z"/></svg>
+        </a>
+        <a class="siteFooter__social siteFooter__social--tiktok" href="https://www.tiktok.com/@dadafafada?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3c.6 1.8 1.7 3 3.7 3.3v2.6a6.2 6.2 0 0 1-3.4-1v6.1a5 5 0 1 1-5-5h.5V12a2.5 2.5 0 1 0 1.9 2.4V3H14Z"/></svg>
+        </a>
+        <a class="siteFooter__social siteFooter__social--youtube" href="https://www.youtube.com/@dadafa1783" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2a2.9 2.9 0 0 0-2-2C17.8 4.7 12 4.7 12 4.7s-5.8 0-7.6.5a2.9 2.9 0 0 0-2 2A30 30 0 0 0 2 12a30 30 0 0 0 .4 4.8 2.9 2.9 0 0 0 2 2c1.8.5 7.6.5 7.6.5s5.8 0 7.6-.5a2.9 2.9 0 0 0 2-2A30 30 0 0 0 22 12a30 30 0 0 0-.4-4.8ZM10 15.5v-7l6 3.5-6 3.5Z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container siteFooter__bottom">
+    <div class="muted">© Store, 2026
+      
+    </div>
+    <div class="muted">Контакты: supportstore@gmail.com</div>
+    
+  </div>
+</footer>
+
+<script src="js/shared/utils/helpers.js"></script>
+<script src="js/shared/api/client.js"></script>
+<script src="js/core/auth.js"></script>
+<script src="js/core/storage.js"></script>
+
+<script src="js/ui/ui.js"></script>
+
+<script src="js/components/header/header.js"></script>
+
+<script src="js/features/categories/categories-showcase.js"></script>
+<script src="js/components/product-card/product-card.js"></script>
+
+<script src="js/features/catalog/catalog.js"></script>
+<script src="js/features/catalog/search.js"></script>
+<script src="js/features/cart/cart.js"></script>
+<script src="js/features/favorites/favorites.js"></script>
+
+<script src="js/pages/home.js"></script>
+
+
+</body>
+</html>

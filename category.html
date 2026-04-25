@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Store — Категория</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/ui.css" />
+  <link rel="stylesheet" href="css/home.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="container topbar__inner topbar__playerok">
+    <a class="brand" href="index.html">
+      <span class="brand__dot"></span>
+      <span class="brand__name">Store</span>
+    </a>
+
+    <div class="topbar__actions">
+  <button class="iconBtn" id="notifBtn" type="button" title="Уведомления">
+    🔔 <span class="badge" id="notifBadge" hidden>0</span>
+  </button>
+
+  <button class="iconBtn" id="cartBtn" type="button" title="Корзина">
+    🛒 <span class="badge" id="cartBadge" hidden>0</span>
+  </button>
+
+  <button class="iconBtn" id="profileBtn" type="button" title="Профиль">
+    👤 <span>Войти</span>
+  </button>
+</div>
+  </div>
+</header>
+
+<main class="container catalogPage categoryPageModern">
+  <section class="hero hero--cat hero--catModern">
+  <div class="hero__left hero__left--catModern">
+    <div class="hero__eyebrow">Каталог</div>
+    <div class="hero__title" id="catTitle">Категория</div>
+    <div class="hero__sub" id="catSub">Подборка товаров по выбранной категории</div>
+
+    <div class="categoryInfoCard">
+      <div class="categoryInfoCard__meta" id="resultMeta">Товаров: —</div>
+      <div class="categoryInfoCard__text">Выбирай категорию справа или используй поиск внутри текущей подборки.</div>
+    </div>
+  </div>
+
+  <div class="hero__right hero__right--cat">
+    <div class="categoryToolbar">
+      <div class="categorySearch">
+        <input id="searchInput" placeholder="Поиск по этой категории..." />
+        <button class="topSearch__clear" id="clearBtn" type="button" title="Очистить">✕</button>
+      </div>
+
+      <div class="chips chips--cat" id="categoryChips"></div>
+    </div>
+  </div>
+</section>
+
+  <section class="grid grid--catalog" id="productsGrid"></section>
+
+  <section class="empty empty--catalog" id="emptyState" hidden>
+    <div class="empty__title">Ничего не найдено</div>
+    <div class="empty__sub">Попробуй другой запрос или выбери другую категорию</div>
+    <button class="btn btn--primary" id="resetBtn" type="button">Сбросить</button>
+  </section>
+</main>
+
+<script src="js/shared/utils/helpers.js"></script>
+<script src="js/core/auth.js"></script>
+<script src="js/shared/api/client.js"></script>
+<script src="js/core/storage.js"></script>
+
+<script src="js/ui/ui.js"></script>
+
+<script src="js/components/product-card/product-card.js"></script>
+
+<script src="js/features/cart/cart.js"></script>
+<script src="js/features/favorites/favorites.js"></script>
+<script src="js/features/catalog/category-catalog.js"></script>
+
+<script src="js/pages/category-page.js"></script>
+
+</body>
+</html>

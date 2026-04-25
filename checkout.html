@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Store — Оформление</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/ui.css" />
+  <link rel="stylesheet" href="css/checkout.css" />
+</head>
+<body class="checkoutPage">
+  <div id="headerMount" data-header="account"></div>
+  <div id="subbarMount" data-subbar="none"></div>
+
+  <main class="container chWrap">
+    <section class="chCard">
+      <div class="chTitle">Оформление заказа</div>
+      <div class="chSub">Страница теперь работает от содержимого корзины и подходит для любых товаров, которые появятся дальше в проекте.</div>
+
+      <div class="chGrid">
+        <section class="chForm">
+          <div class="field">
+            <div class="label">Город</div>
+            <input class="input" id="city" placeholder="Алматы" />
+          </div>
+
+          <div class="field">
+            <div class="label">Адрес</div>
+            <input class="input" id="address" placeholder="Улица, дом, квартира" />
+          </div>
+
+          <div class="field">
+            <div class="label">Телефон</div>
+            <input class="input" id="phone" placeholder="+7..." />
+          </div>
+
+          <div class="field">
+            <div class="label">Комментарий к заказу</div>
+            <textarea class="textarea" id="checkoutComment" placeholder="Например: доставить после 18:00"></textarea>
+          </div>
+
+          <div class="row">
+            <button class="btn btn--primary" id="placeOrderBtn" type="button">Перейти к оплате</button>
+            <a class="btn" href="cart.html">Назад в корзину</a>
+          </div>
+
+          <div class="msg" id="checkoutMsg"></div>
+        </section>
+
+        <aside class="chSummary">
+          <div class="chSummary__head">
+            <div class="chSummary__title">Состав заказа</div>
+            <div class="muted" id="checkoutItemsMeta">0 товаров</div>
+          </div>
+
+          <div class="chItems" id="checkoutItems"></div>
+
+          <div class="chTotals">
+            <div class="sumLine">
+              <span>Товары</span>
+              <b id="checkoutSubtotal">0 ₸</b>
+            </div>
+            <div class="sumLine">
+              <span>Доставка</span>
+              <span id="checkoutDelivery">0 ₸</span>
+            </div>
+            <div class="sumLine sumLine--total">
+              <span>Итого</span>
+              <b id="checkoutTotal">0 ₸</b>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/shared/utils/helpers.js"></script>
+  <script src="js/shared/api/client.js"></script>
+  <script src="js/shared/product-normalizer.js"></script>
+  <script src="js/core/auth.js"></script>
+  <script src="js/core/storage.js"></script>
+  <script src="js/components/header/header-auth.js"></script>
+  <script src="js/components/header/header-ui.js"></script>
+  <script src="js/components/header/header.js"></script>
+  <script src="js/ui/ui.js"></script>
+  <script src="js/features/checkout/checkout.js"></script>
+</body>
+</html>

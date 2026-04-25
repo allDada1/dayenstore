@@ -1,0 +1,44 @@
+main.container,
+.pwrap,
+.profWrap,
+.admWrap,
+.authWrap,
+.cartWrap,
+.chWrap,
+.ok,
+.paymentPage,
+.shopPage{
+  position:relative;
+  z-index:1;
+}
+
+.authWrap,
+.cartWrap,
+.chWrap,
+.ok{
+  padding:40px 0 56px;
+}
+
+.profWrap,
+.admWrap{
+  padding:26px 0 34px;
+}
+
+.pwrap{
+  padding:24px 0 36px;
+}
+
+@media (max-width: 920px){
+  .authWrap,
+  .cartWrap,
+  .chWrap,
+  .ok{
+    padding:28px 0 40px;
+  }
+
+  .profWrap,
+  .admWrap,
+  .pwrap{
+    padding:20px 0 28px;
+  }
+}

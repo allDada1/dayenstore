@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Store — Магазин продавца</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/ui.css" />
+  <link rel="stylesheet" href="css/home.css" />
+  <link rel="stylesheet" href="css/seller.css" />
+</head>
+<body>
+
+ <div id="headerMount" data-header="seller"></div>
+ <div id="subbarMount" data-subbar="none"></div>
+
+<main class="container page">
+  <div class="sellerCover" id="sellerCover">
+  <div class="sellerHead">
+    <div class="sellerHead__avatar" id="sellerAvatar"></div>
+    <div class="sellerHead__info">
+      <div class="sellerHead__name" id="sellerName">Загрузка…</div>
+      <div id="sellerBadge" class="sellerBadge" hidden>Проверенный магазин</div>
+      <div class="sellerHead__meta" id="sellerMeta"></div>
+    </div>
+    <button class="btn btn--primary" id="followBtn" type="button" hidden>Подписаться</button>
+  </div>
+  </div>
+
+<section class="sellerAboutCard" id="sellerAboutCard" hidden>
+  <div class="sellerAboutCard__main">
+    <div class="sellerAboutCard__content">
+      <div class="sellerAboutCard__title">О магазине</div>
+      <div class="sellerAboutCard__text" id="sellerAbout"></div>
+    </div>
+
+    <aside class="sellerAboutCard__side" id="sellerContactsBlock">
+      <div class="sellerAboutCard__sideTitle">Контакты</div>
+      <div class="sellerAboutCard__links" id="sellerLinks"></div>
+    </aside>
+  </div>
+</section>
+
+  <div class="sellerToolbar">
+  <div class="sellerToolbar__left">
+    <div class="sellerStat">
+      <div class="sellerStat__label">Товаров</div>
+      <div class="sellerStat__value" id="productsCount">0</div>
+    </div>
+    <a class="sellerStat sellerStat--link" id="reviewsStatLink" href="#">
+      <div class="sellerStat__label">Отзывы</div>
+      <div class="sellerStat__value" id="reviewsCount">0</div>
+    </a>
+  </div>
+
+<div class="sellerToolbar__right">
+  <div class="sellerChips" id="sortChips">
+    <button type="button" class="sellerChip is-active" data-sort="default">По умолчанию</button>
+    <button type="button" class="sellerChip" data-sort="price_asc">Дешёвые</button>
+    <button type="button" class="sellerChip" data-sort="price_desc">Дорогие</button>
+    <button type="button" class="sellerChip" data-sort="title">По названию</button>
+  </div>
+</div>
+  </div>
+
+  <section class="grid" id="productsGrid"></section>
+  <div class="empty" id="emptyState" hidden>
+    <div class="empty__title">Товаров нет</div>
+    <div class="empty__text">У этого продавца пока нет объявлений или они скрыты.</div>
+  </div>
+</main>
+
+<script src="js/shared/utils/helpers.js"></script>
+<script src="js/shared/api/client.js"></script>
+<script src="js/shared/product-normalizer.js"></script>
+<script src="js/components/product-card/product-card.js"></script>
+<script src="js/core/auth.js"></script>
+<script src="js/core/storage.js"></script>
+<script src="js/ui/ui.js"></script>
+<script src="js/components/header/header-auth.js"></script>
+<script src="js/components/header/header-ui.js"></script>
+<script src="js/components/header/header.js"></script>
+<script src="js/features/seller/seller-store.helpers.js"></script>
+<script src="js/features/seller/seller-store.js"></script>
+</body>
+</html>

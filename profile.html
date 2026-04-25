@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Store — Профиль</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/ui.css" />
+  <link rel="stylesheet" href="css/profile.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="index.html"><span class="brand__dot"></span><span class="brand__name">Store</span></a>
+      <div class="topbar__actions">
+        <a class="linkBtn" href="settings.html">Настройки</a>
+        <button class="btn" id="logoutBtn" type="button">Выйти</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container profWrap profDashWrap">
+    <section class="profHero">
+      <div class="profHero__main">
+        <div class="avatar avatar--lg" id="avatarBox" title="Аватар профиля">
+          <img id="avatarImg" hidden alt="Аватар">
+          <span id="avatarFallback">👤</span>
+        </div>
+        <input id="avatarInput" type="file" accept="image/*" hidden>
+
+        <div class="profHero__info">
+          <div class="profEyebrow">Личный кабинет</div>
+          <h1 class="profName profName--hero" id="profileName">—</h1>
+          <div class="profEmail" id="profileEmail">—</div>
+          <div class="profNickLine">Ник: <span id="profileNick">—</span></div>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="statsGrid">
+      <article class="statCard">
+        <div class="statCard__label">Всего заказов</div>
+        <div class="statCard__value" id="statOrders">—</div>
+      </article>
+      <article class="statCard">
+        <div class="statCard__label">Оплаченных</div>
+        <div class="statCard__value" id="statPaid">—</div>
+      </article>
+      <article class="statCard">
+        <div class="statCard__label">Избранное</div>
+        <div class="statCard__value" id="statFavorites">—</div>
+      </article>
+      <article class="statCard">
+        <div class="statCard__label">Мои товары</div>
+        <div class="statCard__value" id="statProducts">—</div>
+      </article>
+    </section>
+
+    <section class="profCard profHub">
+      <div class="sectionHead">
+        <div>
+          <div class="sectionTitle">Разделы профиля</div>
+          <div class="sectionSub">Быстрый доступ к главным страницам аккаунта</div>
+        </div>
+      </div>
+
+      <div class="hubGrid">
+        <a class="hubTile" href="orders.html">
+          <div class="hubTile__title">Мои заказы</div>
+          <div class="hubTile__sub">История покупок, статусы и повторы заказов</div>
+        </a>
+
+        <a class="hubTile" href="favorites.html">
+          <div class="hubTile__title">Избранное</div>
+          <div class="hubTile__sub">Сохранённые товары и быстрый возврат к ним</div>
+        </a>
+
+        <a class="hubTile" href="seller-dashboard.html" id="sellerApplyBtn" style="display:none;">
+          <div class="hubTile__title">Подать заявку продавца</div>
+          <div class="hubTile__sub">Отправить заявку на доступ к продаже товаров</div>
+        </a>
+
+        <a class="hubTile" href="seller-dashboard.html" id="sellerPendingBtn" style="display:none;">
+          <div class="hubTile__title">Заявка на рассмотрении</div>
+          <div class="hubTile__sub" id="sellerPendingSub">Администратор ещё проверяет данные продавца</div>
+        </a>
+
+        <a class="hubTile" href="seller-dashboard.html" id="sellerRejectedBtn" style="display:none;">
+          <div class="hubTile__title">Заявка отклонена</div>
+          <div class="hubTile__sub" id="sellerRejectedSub">Открой страницу продавца, чтобы посмотреть причину и отправить повторно</div>
+        </a>
+
+        <a class="hubTile" href="seller-dashboard.html" id="sellerPanelBtn" style="display:none;">
+          <div class="hubTile__title">Панель продавца</div>
+          <div class="hubTile__sub">Управление магазином и профилем продавца</div>
+        </a>
+
+        <a class="hubTile" href="seller-products.html" id="sellerProductsBtn" style="display:none;">
+          <div class="hubTile__title">Мои товары</div>
+          <div class="hubTile__sub">Список товаров продавца и быстрый переход</div>
+        </a>
+
+        <a class="hubTile" id="adminTile" href="admin-tiles.html" style="display:none;">
+          <div class="hubTile__title">Админ панель</div>
+          <div class="hubTile__sub">Управление категориями и товарами</div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/shared/utils/helpers.js"></script>
+  <script src="js/shared/api/client.js"></script>
+  <script src="js/pages/profile-page.js"></script>
+  <script src="js/pages/profile-dashboard.js"></script>
+</body>
+</html>

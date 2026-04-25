@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Store — Плитка</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/ui.css" />
+  <link rel="stylesheet" href="css/home.css" />
+  <link rel="stylesheet" href="css/search.css" />
+</head>
+<body>
+
+<div id="headerMount" data-header="catalog"></div>
+<div id="subbarMount" data-subbar="catalog"></div>
+
+<main class="container catalogPage">
+  <section class="hero hero--cat">
+    <div>
+      <div class="hero__title" id="tileTitle">Плитка</div>
+      <div class="hero__sub" id="tileSub">Загрузка…</div>
+      <div class="metaText" id="resultMeta"></div>
+    </div>
+  </section>
+
+  <section id="productsGrid" class="grid"></section>
+
+  <section id="emptyState" class="empty" hidden>
+    <div class="empty__title">Пока пусто</div>
+    <div class="empty__sub">В этой плитке ещё нет товаров.</div>
+  </section>
+</main>
+
+<script src="js/shared/utils/helpers.js"></script>
+<script src="js/shared/api/client.js"></script>
+<script src="js/core/auth.js"></script>
+<script src="js/core/storage.js"></script>
+<script src="js/components/header/header-auth.js"></script>
+<script src="js/components/header/header-ui.js"></script>
+<script src="js/components/header/header.js"></script>
+<script src="js/features/categories/tile.js"></script>
+
+</body>
+</html>

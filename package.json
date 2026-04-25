@@ -1,0 +1,26 @@
+{
+  "name": "di-marketplace",
+  "private": true,
+  "scripts": {
+    "dev:server": "node server/server.js",
+    "migrate": "node server/db/run-migrate.js",
+    "backfill": "node server/db/run-backfill.js",
+    "setup": "npm run migrate && npm run backfill"
+  },
+  "dependencies": {
+    "@netlify/neon": "^0.1.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.3.1",
+    "express": "^4.19.2",
+    "google-auth-library": "^9.15.1",
+    "multer": "^2.0.2",
+    "pg": "^8.19.0",
+    "serverless-http": "^3.2.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.6.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.2"
+  }
+}

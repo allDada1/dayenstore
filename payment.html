@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Store — Оплата</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/ui.css" />
+  <link rel="stylesheet" href="css/payment.css" />
+</head>
+<body class="paymentPage">
+  <div id="headerMount" data-header="account"></div>
+  <div id="subbarMount" data-subbar="none"></div>
+
+  <main class="container payWrap">
+    <section class="card payCard">
+      <div class="payTop">
+        <div>
+          <h1 class="payTitle">Оплата заказа</h1>
+          <div class="muted" id="payOrderInfo">Заказ: —</div>
+        </div>
+        <div class="paySecure">Защищённая форма</div>
+      </div>
+
+      <div class="paySummary" id="paySummary" hidden>
+        <div class="paySummary__left">
+          <div class="paySumLine"><span class="muted">Сумма</span> <b id="payTotal">—</b></div>
+          <div class="paySumLine"><span class="muted">Доставка</span> <span id="payDelivery">—</span></div>
+          <div class="paySumLine"><span class="muted">Контакты</span> <span id="payContacts">—</span></div>
+        </div>
+        <div class="paySummary__right">
+          <div class="payBadge" id="payStatusBadge">в ожидании</div>
+          <a class="btn btn--ghost" id="payGoOrder" href="orders.html">Открыть заказ</a>
+        </div>
+      </div>
+
+      <div class="payGrid">
+        <section class="payLeft">
+          <div class="payMethods" id="payMethods">
+            <label class="payMethod">
+              <input type="radio" name="pay" value="card" checked />
+              <div>
+                <div class="payMethod__t">Карта</div>
+                <div class="muted">Visa / MasterCard</div>
+              </div>
+            </label>
+
+            <label class="payMethod">
+              <input type="radio" name="pay" value="kaspi" />
+              <div>
+                <div class="payMethod__t">Kaspi</div>
+                <div class="muted">QR / перевод</div>
+              </div>
+            </label>
+
+            <label class="payMethod">
+              <input type="radio" name="pay" value="balance" />
+              <div>
+                <div class="payMethod__t">Баланс</div>
+                <div class="muted">Внутренний кошелёк</div>
+              </div>
+            </label>
+          </div>
+
+          <div class="payPane is-active" id="pane-card" data-pane="card">
+            <div class="paneTitle">Данные карты</div>
+            <div class="formGrid">
+              <label class="field field--full">
+                <span>Номер карты</span>
+                <input id="cardNumber" inputmode="numeric" autocomplete="cc-number" placeholder="1234 5678 9012 3456" maxlength="19" />
+                <small class="fieldErr" id="err-cardNumber"></small>
+              </label>
+
+              <label class="field field--full">
+                <span>Имя держателя</span>
+                <input id="cardName" autocomplete="cc-name" placeholder="DADA FAFA" maxlength="28" />
+                <small class="fieldErr" id="err-cardName"></small>
+              </label>
+
+              <label class="field">
+                <span>Срок</span>
+                <input id="cardExpiry" inputmode="numeric" autocomplete="cc-exp" placeholder="MM/YY" maxlength="5" />
+                <small class="fieldErr" id="err-cardExpiry"></small>
+              </label>
+
+              <label class="field">
+                <span>CVV</span>
+                <input id="cardCvv" inputmode="numeric" autocomplete="cc-csc" placeholder="123" maxlength="3" />
+                <small class="fieldErr" id="err-cardCvv"></small>
+              </label>
+            </div>
+            <label class="checkLine">
+              <input type="checkbox" id="saveCard" />
+              <span>Сохранить карту для следующих покупок</span>
+            </label>
+          </div>
+
+          <div class="payPane" id="pane-kaspi" data-pane="kaspi">
+            <div class="paneTitle">Kaspi QR</div>
+            <div class="paneBlock">
+              <div class="mockQr" aria-hidden="true"></div>
+              <div>
+                <div class="paneStrong">Открой Kaspi и отсканируй код</div>
+                <div class="muted">Это демо-экран. После нажатия «Оплатить» заказ будет помечен как оплаченный.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="payPane" id="pane-balance" data-pane="balance">
+            <div class="paneTitle">Оплата с баланса</div>
+            <div class="paneBlock paneBlock--stack">
+              <div class="balanceCard">
+                <div class="muted">Доступно</div>
+                <div class="balanceCard__sum">250 000 ₸</div>
+              </div>
+              <div class="muted">Баланс моковый. Позже сюда можно привязать реальную внутреннюю систему счёта.</div>
+            </div>
+          </div>
+
+          <div class="payActions">
+            <button class="btn btn--primary" id="payBtn" type="button">Оплатить</button>
+            <a class="btn btn--ghost" id="payLaterBtn" href="orders.html">Открыть заказ позже</a>
+          </div>
+
+          <div class="payStatus" id="payStatus" hidden>
+            <div class="spinner" aria-hidden="true"></div>
+            <div>
+              <div class="payStatus__t">Обрабатываем…</div>
+              <div class="muted" id="payStatusText">Пожалуйста, не закрывайте страницу</div>
+            </div>
+          </div>
+
+          <div class="muted payMsg" id="payMsg"></div>
+        </section>
+
+        <aside class="payRight">
+          <div class="cardVisual" id="cardVisual">
+            <div class="cardVisual__chip"></div>
+            <div class="cardVisual__brand" id="cardBrand">CARD</div>
+            <div class="cardVisual__number" id="cardPreviewNumber">•••• •••• •••• ••••</div>
+            <div class="cardVisual__meta">
+              <div>
+                <div class="cardVisual__label">CARD HOLDER</div>
+                <div class="cardVisual__value" id="cardPreviewName">YOUR NAME</div>
+              </div>
+              <div>
+                <div class="cardVisual__label">EXPIRES</div>
+                <div class="cardVisual__value" id="cardPreviewExpiry">MM/YY</div>
+              </div>
+            </div>
+            <div class="cardVisual__back" id="cardBack">
+              <div class="cardVisual__stripe"></div>
+              <div class="cardVisual__cvvBox">
+                <span>CVV</span>
+                <b id="cardPreviewCvv">•••</b>
+              </div>
+            </div>
+          </div>
+
+          <div class="payHints">
+            <div class="hintItem">Кнопка «Открыть заказ» больше не ведёт на страницу успеха до оплаты.</div>
+            <div class="hintItem">После оплаты заказ пометится как paid и только потом откроется success-страница.</div>
+            <div class="hintItem">Из страницы моих заказов можно вернуться к оплате позже.</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+<script src="js/shared/api/client.js"></script>
+<script src="js/core/auth.js"></script>
+<script src="js/core/storage.js"></script>
+<script src="js/components/header/header-auth.js"></script>
+<script src="js/components/header/header-ui.js"></script>
+<script src="js/components/header/header.js"></script>
+<script src="js/ui/dropdowns.js"></script>
+<script src="js/ui/ui.js"></script>
+<script src="js/features/checkout/payment-mock.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Store — Настройки</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/ui.css" />
+  <link rel="stylesheet" href="css/profile.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="index.html"><span class="brand__dot"></span><span class="brand__name">Store</span></a>
+      <div class="topbar__actions">
+        <a class="linkBtn" href="profile.html">Профиль</a>
+        <a class="linkBtn" href="orders.html">Заказы</a>
+        <button class="btn" id="logoutBtn" type="button">Выйти</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container profWrap settingsWrap">
+    <section class="pageHero pageHero--compact">
+      <div>
+        <div class="profEyebrow">Личный кабинет</div>
+        <h1 class="pageTitle">Настройки профиля</h1>
+        <div class="sectionSub">Управляй данными аккаунта, внешним видом и аватаром</div>
+      </div>
+      <div class="pageHero__actions">
+        <a class="btn btn--ghost" href="profile.html">Назад в профиль</a>
+      </div>
+    </section>
+
+    <section class="profCard settingsCard">
+      <div class="settingsHead">
+        <div class="profTop">
+          <div class="avatar avatar--lg" id="avatarBox" title="Нажми, чтобы сменить аватар">
+            <img id="avatarImg" hidden alt="Аватар">
+            <span id="avatarFallback">👤</span>
+          </div>
+          <input id="avatarInput" type="file" accept="image/*" hidden>
+
+          <div class="profWho">
+            <div class="profName" id="profileName">—</div>
+            <div class="profEmail" id="profileEmail">—</div>
+            <div class="profNickLine">Ник: <span id="profileNick">—</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="settingsGrid">
+        <div class="settingsPanel">
+          <div class="panelTitle">Основные данные</div>
+          <div class="profEdit">
+            <div class="profEdit__row">
+              <label class="field">
+                <div class="field__t">Имя</div>
+                <input class="field__i" id="nameInput" placeholder="Ваше имя" />
+              </label>
+              <label class="field">
+                <div class="field__t">Ник</div>
+                <input class="field__i" id="nickInput" placeholder="Ваш ник" />
+              </label>
+            </div>
+
+            <div class="profEdit__row">
+              <label class="field">
+                <div class="field__t">Язык</div>
+                <select class="field__i" id="langSelect">
+                  <option value="ru">Русский</option>
+                  <option value="kz">Қазақша</option>
+                  <option value="en">English</option>
+                </select>
+              </label>
+              <div class="field">
+                <div class="field__t">Тема</div>
+                <button class="themeSwitch" id="themeToggleBtn" type="button" role="switch" aria-checked="false" aria-label="Переключить тему">
+                  <span class="themeSwitch__knob"></span>
+                </button>
+              </div>
+            </div>
+
+            <div class="profEdit__actions">
+              <button class="btn btn--primary" id="saveProfileBtn" type="button">Сохранить</button>
+              <span class="muted" id="profileNote"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="settingsPanel settingsPanel--side">
+          <div class="panelTitle">Быстрые действия</div>
+          <div class="settingsQuick">
+            <a class="hubTile hubTile--compact" href="orders.html">
+              <div class="hubTile__title">Мои заказы</div>
+              <div class="hubTile__sub">Открыть историю покупок</div>
+            </a>
+            <a class="hubTile hubTile--compact" href="favorites.html">
+              <div class="hubTile__title">Избранное</div>
+              <div class="hubTile__sub">Просмотреть сохранённые товары</div>
+            </a>
+            <a class="hubTile hubTile--compact" id="adminTile" href="admin-tiles.html" style="display:none;">
+              <div class="hubTile__title">Админ панель</div>
+              <div class="hubTile__sub">Управление магазином</div>
+            </a>
+            <a class="hubTile hubTile--compact" href="seller-dashboard.html" id="sellerPanelBtn" style="display:none;">
+              <div class="hubTile__title">Панель продавца</div>
+              <div class="hubTile__sub">Перейти к управлению магазином</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/shared/utils/helpers.js"></script>
+  <script src="js/shared/api/client.js"></script>
+  <script src="js/pages/settings-page.js"></script>
+</body>
+</html>

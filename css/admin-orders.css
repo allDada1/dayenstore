@@ -1,0 +1,201 @@
+body.mode-orders .adminOrdersTopbar{
+  gap:18px;
+}
+
+body.mode-orders .adminTopbar__actions .linkBtn.is-active{
+  background:linear-gradient(180deg, rgba(134,168,255,.28), rgba(134,168,255,.18));
+  border-color:rgba(134,168,255,.34);
+}
+
+body.mode-orders .admOrdersPage{
+  gap:16px;
+}
+
+body.mode-orders .admOrdersHero{
+  align-items:flex-start;
+}
+
+body.mode-orders .admHero__status{
+  min-width:220px;
+}
+
+body.mode-orders .admOrdersNotice{
+  min-height:22px;
+  color:rgba(255,255,255,.78);
+  font-weight:700;
+}
+
+body.mode-orders .admOrdersGrid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+}
+
+body.mode-orders .admOrdersPanel{
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.02);
+  border-radius:18px;
+  padding:14px;
+  display:grid;
+  gap:12px;
+}
+
+body.mode-orders .admOrdersHint{
+  font-size:13px;
+  color:rgba(255,255,255,.62);
+}
+
+body.mode-orders .admOrdersCard{
+  display:grid;
+  gap:14px;
+}
+
+body.mode-orders .orderSummaryGrid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:10px;
+}
+
+body.mode-orders .orderSummaryBox{
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.03);
+  border-radius:16px;
+  padding:12px;
+  display:grid;
+  gap:6px;
+}
+
+body.mode-orders .orderSummaryBox span{
+  font-size:12px;
+  color:rgba(255,255,255,.6);
+}
+
+body.mode-orders .orderSummaryBox b{
+  font-size:15px;
+  overflow-wrap:anywhere;
+}
+
+body.mode-orders .orderStatusPill{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:max-content;
+  min-height:32px;
+  padding:0 12px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.04);
+  color:rgba(255,255,255,.92);
+  font-size:13px;
+  font-weight:800;
+}
+
+body.mode-orders .orderStatusPill.is-pending{ background:rgba(245,158,11,.12); border-color:rgba(245,158,11,.32); }
+body.mode-orders .orderStatusPill.is-paid{ background:rgba(59,130,246,.12); border-color:rgba(59,130,246,.30); }
+body.mode-orders .orderStatusPill.is-shipped{ background:rgba(168,85,247,.12); border-color:rgba(168,85,247,.30); }
+body.mode-orders .orderStatusPill.is-delivered{ background:rgba(34,197,94,.12); border-color:rgba(34,197,94,.30); }
+body.mode-orders .orderStatusPill.is-cancelled{ background:rgba(239,68,68,.12); border-color:rgba(239,68,68,.30); }
+
+body.mode-orders .admOrdersBlocks{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+body.mode-orders .admOrdersBlock{
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.02);
+  border-radius:18px;
+  padding:14px;
+  display:grid;
+  gap:12px;
+}
+
+body.mode-orders .orderLine,
+body.mode-orders .orderHistoryItem{
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(0,0,0,.16);
+  border-radius:16px;
+  padding:12px;
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  align-items:flex-start;
+}
+
+body.mode-orders .orderLine{
+  gap:10px;
+}
+
+body.mode-orders .orderLine__title{
+  font-size:14px;
+  line-height:1.45;
+}
+
+body.mode-orders .orderLine__meta{
+  margin-top:6px;
+  color:rgba(255,255,255,.62);
+  font-size:12px;
+}
+
+body.mode-orders .orderLine__price{
+  font-weight:800;
+  white-space:nowrap;
+}
+
+body.mode-orders .orderHistoryItem{
+  align-items:center;
+}
+
+body.mode-orders .orderHistoryItem__left{
+  display:grid;
+  gap:6px;
+}
+
+body.mode-orders .orderHistory__note{
+  color:rgba(255,255,255,.64);
+  font-size:13px;
+}
+
+@media (max-width: 1240px){
+  body.mode-orders .topbar__inner.adminTopbar{
+    height:auto;
+    padding:12px 0;
+    flex-wrap:wrap;
+    align-items:flex-start;
+  }
+
+  body.mode-orders .adminTopbar__center{
+    order:3;
+    width:100%;
+  }
+}
+
+@media (max-width: 980px){
+  body.mode-orders .admOrdersGrid,
+  body.mode-orders .admOrdersBlocks,
+  body.mode-orders .orderSummaryGrid{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media (max-width: 680px){
+  body.mode-orders .admHero{
+    flex-direction:column;
+  }
+
+  body.mode-orders .admHero__status{
+    min-width:0;
+  }
+
+  body.mode-orders .admOrdersGrid,
+  body.mode-orders .admOrdersBlocks,
+  body.mode-orders .orderSummaryGrid{
+    grid-template-columns:1fr;
+  }
+
+  body.mode-orders .orderLine,
+  body.mode-orders .orderHistoryItem{
+    flex-direction:column;
+  }
+}

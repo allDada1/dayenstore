@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Панель продавца</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/ui.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+  <link rel="stylesheet" href="css/seller.css" />
+</head>
+<body class="sellerDashPage">
+<div id="headerMount" data-header="seller"></div>
+<div id="subbarMount" data-subbar="seller"></div>
+
+<main class="container" style="padding-top:20px;">
+  <div class="admWrap">
+    <div class="admCard sellerDashCard">
+      <div class="sellerDashHero">
+        <div>
+          <h1 class="admTitle">Панель продавца</h1>
+          <div class="muted sellerDashHero__sub">Управление заявкой, витриной магазина и товарами.</div>
+        </div>
+        <div class="sellerDashState" id="sellerStateBadge">Проверка статуса…</div>
+      </div>
+      <div class="sellerDashNote muted" id="sellerMsg"></div>
+
+      <section id="becomeBox" class="sellerDashSection" style="display:none; margin-top:14px;">
+        <h3 style="margin:0 0 8px;">Подать заявку продавца</h3>
+        <div class="muted" id="requestStateText" style="margin-bottom:8px;"></div>
+
+        <div class="grid2">
+          <div class="field">
+            <label class="label">Slug магазина</label>
+            <input class="input" id="username" placeholder="например: dadada-shop" />
+            <div class="muted sellerDashHint">Только латиница, цифры и дефис. Например: dada-shop</div>
+          </div>
+          <div class="field">
+            <label class="label">Фото магазина</label>
+            <input class="input" id="avatarUrl" placeholder="https://..." />
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Название магазина</label>
+          <input class="input" id="requestShopName" placeholder="Например: Dada Store" />
+        </div>
+        <div class="field">
+          <label class="label">Контакты</label>
+          <input class="input" id="requestContacts" placeholder="Telegram, email или телефон" />
+        </div>
+        <div class="field">
+          <label class="label">Описание</label>
+          <textarea class="textarea" id="requestAbout" rows="4" placeholder="Что ты собираешься продавать"></textarea>
+        </div>
+        <button class="btn btn--primary" id="applyBtn" type="button">Отправить заявку</button>
+      </section>
+
+      <section id="profileBox" class="sellerDashSection" style="display:none; margin-top:14px;">
+        <h3 style="margin:0 0 8px;">Профиль магазина</h3>
+
+        <div class="field">
+          <label class="label">Название магазина</label>
+          <input class="input" id="shopName" placeholder="Название магазина" />
+        </div>
+
+        <input type="hidden" id="shopAvatar" />
+        <input type="hidden" id="shopBanner" />
+
+        <div class="grid2">
+          <div class="field">
+            <label class="label">Фото магазина</label>
+            <div class="uploadBox" id="shopAvatarBox">
+              <div class="muted">Нажми «Выбрать фото» и загрузи аватар магазина</div>
+              <div class="row" style="margin-top:10px;">
+                <button class="btn" id="pickShopAvatarBtn" type="button">Выбрать фото</button>
+                <button class="btn btn--ghost" id="clearShopAvatarBtn" type="button">Убрать фото</button>
+                <input type="file" id="shopAvatarInput" accept="image/*" hidden />
+              </div>
+              <div class="imageGrid" style="grid-template-columns:minmax(0, 180px);">
+                <div class="imageChip">
+                  <img id="shopAvatarPreview" hidden alt="Фото магазина" />
+                  <div class="muted" id="shopAvatarEmpty">Фото магазина не выбрано</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Баннер магазина</label>
+            <div class="uploadBox" id="shopBannerBox">
+              <div class="muted">Нажми «Выбрать баннер» и загрузи изображение для шапки магазина</div>
+              <div class="row" style="margin-top:10px;">
+                <button class="btn" id="pickShopBannerBtn" type="button">Выбрать баннер</button>
+                <button class="btn btn--ghost" id="clearShopBannerBtn" type="button">Убрать баннер</button>
+                <input type="file" id="shopBannerInput" accept="image/*" hidden />
+              </div>
+              <div class="imageGrid" style="grid-template-columns:minmax(0, 1fr);">
+                <div class="imageChip">
+                  <img id="shopBannerPreview" hidden alt="Баннер магазина" style="aspect-ratio:16/6;" />
+                  <div class="muted" id="shopBannerEmpty">Баннер магазина не выбран</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Описание магазина</label>
+          <textarea class="textarea" id="shopAbout" rows="4" placeholder="О чём магазин / условия / и т.д."></textarea>
+        </div>
+
+        <div class="grid2">
+          <div class="field">
+            <label class="label">Telegram</label>
+            <input class="input" id="shopTelegram" placeholder="@username или t.me/username" />
+          </div>
+          <div class="field">
+            <label class="label">Instagram</label>
+            <input class="input" id="shopInstagram" placeholder="instagram.com/..." />
+          </div>
+          <div class="field">
+            <label class="label">WhatsApp</label>
+            <input class="input" id="shopWhatsapp" placeholder="+7... или wa.me/..." />
+          </div>
+          <div class="field">
+            <label class="label">TikTok</label>
+            <input class="input" id="shopTiktok" placeholder="tiktok.com/@..." />
+          </div>
+        </div>
+
+        <div class="sellerDashActions">
+          <button class="btn btn--primary" id="saveProfileBtn" type="button">Сохранить профиль</button>
+          <a class="btn" href="seller-products.html" id="goProducts">Управление товарами</a>
+          <a class="btn" href="seller-sales.html" id="goSales">Мои продажи</a>
+          <a class="btn btn--ghost" id="goShop" href="#">Открыть витрину</a>
+        </div>
+        <div class="sellerDashSalesInfo muted" id="sellerSalesInfo"></div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<script src="js/shared/utils/helpers.js"></script>
+<script src="js/shared/api/client.js"></script>
+<script src="js/core/auth.js"></script>
+<script src="js/core/storage.js"></script>
+<script src="js/components/header/header-auth.js"></script>
+<script src="js/components/header/header-ui.js"></script>
+<script src="js/components/header/header.js"></script>
+<script src="js/seller/dashboard.js"></script>
+</body>
+</html>

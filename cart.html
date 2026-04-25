@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Store — Корзина</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/ui.css" />
+  <link rel="stylesheet" href="css/home.css" />
+  <link rel="stylesheet" href="css/cart.css" />
+</head>
+<body>
+  <div id="headerMount" data-header="account"></div>
+  <div id="subbarMount" data-subbar="none"></div>
+
+  <main class="container cartWrap cartPage">
+    <section class="cartMain">
+      <div class="cartHead">
+        <div>
+          <div class="cartTitle">Корзина</div>
+          <div class="cartSub" id="cartItemsMeta">Загрузка товаров…</div>
+        </div>
+      </div>
+      <div class="cartList" id="cartList"></div>
+    </section>
+
+    <aside class="cartSide">
+      <section class="cartCard cartCard--summary">
+        <div class="cartSummary__title">Сводка заказа</div>
+
+        <div class="cartSummary__lines">
+          <div class="sumLine">
+            <span>Товары</span>
+            <b id="cartItemsCount">0</b>
+          </div>
+          <div class="sumLine">
+            <span>Сумма</span>
+            <b id="cartTotal">0 ₸</b>
+          </div>
+          <div class="sumLine">
+            <span>Доставка</span>
+            <span>Рассчитается на следующем шаге</span>
+          </div>
+        </div>
+
+        <div class="cartBtns">
+          <button class="btn" id="clearCartBtn" type="button">Очистить</button>
+          <button class="btn btn--primary" id="toCheckoutBtn" type="button">К оформлению</button>
+        </div>
+
+        <div class="muted" id="cartNote"></div>
+      </section>
+    </aside>
+  </main>
+
+  <script src="js/shared/utils/helpers.js"></script>
+  <script src="js/shared/api/client.js"></script>
+  <script src="js/shared/product-normalizer.js"></script>
+  <script src="js/core/auth.js"></script>
+  <script src="js/core/storage.js"></script>
+  <script src="js/components/header/header-auth.js"></script>
+  <script src="js/components/header/header-ui.js"></script>
+  <script src="js/components/header/header.js"></script>
+  <script src="js/ui/ui.js"></script>
+  <script src="js/pages/cart-page.js"></script>
+</body>
+</html>

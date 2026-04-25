@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Store — Мои товары</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/ui.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+  <link rel="stylesheet" href="css/seller.css" />
+</head>
+<body class="sellerDashPage sellerProductsPage">
+<div id="headerMount" data-header="seller"></div>
+<div id="subbarMount" data-subbar="seller"></div>
+
+<main class="container">
+  <div class="admWrap">
+    <div class="admCard sellerProductsCard">
+      <div class="sellerProductsHead">
+        <div>
+          <div class="sellerProductsHead__row">
+            <h1 class="admTitle">Мои товары</h1>
+            <div class="sellerProductsCount muted" id="countText"></div>
+          </div>
+          <div class="sellerProductsSub muted">Управляй своими товарами, фото и характеристиками в одном месте.</div>
+        </div>
+      </div>
+
+      <div class="sellerProductsNote muted" id="errLine"></div>
+
+      <section class="sellerProductsSection">
+        <h3 class="admTitle2">Добавить товар</h3>
+
+        <div class="grid2">
+          <div class="field">
+            <label class="label">Название</label>
+            <input class="input" id="title" placeholder="Название товара" />
+          </div>
+          <div class="field">
+            <label class="label">Цена</label>
+            <input class="input" id="price" type="number" min="1" placeholder="0" />
+          </div>
+          <div class="field">
+            <label class="label">Кол-во</label>
+            <input class="input" id="stock" type="number" min="0" placeholder="0" />
+          </div>
+          <div class="field">
+            <label class="label">Плитка (обязательно)</label>
+            <select class="input js-nice-select" data-nice-select id="tileSel">
+              <option value="">— Выбери плитку —</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Описание</label>
+          <textarea class="textarea" id="desc" rows="4" placeholder="Описание"></textarea>
+        </div>
+
+        <div class="field">
+          <label class="label">Доп. характеристики товара</label>
+          <div class="specEditor" id="prodSpecsEditor">
+            <div class="specEditor__list" id="prodSpecsList"></div>
+            <div class="specEditor__actions">
+              <button class="smallBtn" id="addSpecRowBtn" type="button">Добавить характеристику</button>
+            </div>
+          </div>
+          <input id="prodSpecs" hidden />
+          <div class="muted sellerProductsHint">Заполни название и значение. Пустые строки не сохраняются.</div>
+        </div>
+
+        <div class="field">
+          <label class="label">Фото товара (можно несколько)</label>
+          <div class="uploadBox" id="uploadBox">
+            <div class="muted">Перетащи несколько файлов сюда или нажми “Выбрать фото”</div>
+            <div class="row" style="margin-top:10px;">
+              <button class="btn" id="pickFilesBtn" type="button">Выбрать фото</button>
+              <button class="btn btn--ghost" id="clearImagesBtn" type="button">Очистить</button>
+              <input type="file" id="fileInput" accept="image/*" multiple hidden />
+              <div class="muted" id="imageUrlText">Фото не выбраны</div>
+            </div>
+            <div class="imageGrid" id="imageGrid"></div>
+          </div>
+        </div>
+
+        <div class="sellerProductsFormActions">
+          <button class="btn btn--primary" id="addBtn" type="button">Добавить</button>
+          <button class="btn btn--ghost" id="resetBtn" type="button">Сбросить</button>
+        </div>
+      </section>
+
+      <section class="sellerProductsSection sellerProductsSection--list">
+        <div class="sellerProductsListHead">
+          <h3 class="admTitle2">Список моих товаров</h3>
+          <div class="sellerProductsMeta muted" id="listMeta">Показано 0 из 0</div>
+        </div>
+
+        <div id="list" class="list"></div>
+        <div class="admPagination" id="sellerProductsPagination"></div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<script src="js/shared/utils/helpers.js"></script>
+<script src="js/shared/api/client.js"></script>
+<script src="js/core/auth.js"></script>
+<script src="js/core/storage.js"></script>
+<script src="js/components/header/header-auth.js"></script>
+<script src="js/components/header/header-ui.js"></script>
+<script src="js/components/header/header.js"></script>
+<script src="js/ui/nice-select.js"></script>
+<script src="js/seller/products.js"></script>
+<script src="js/seller/products.api.js"></script>
+</body>
+</html>

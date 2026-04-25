@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Store — Админ: Плитки</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/ui.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body class="mode-tiles">
+<header class="topbar">
+  <div class="container topbar__inner topbar__playerok adminTopbar">
+    <a class="brand" href="index.html"><span class="brand__dot"></span><span class="brand__name">Store</span></a>
+
+    <div class="adminTopbar__center">
+      <div class="adminTopbar__title">Админ панель</div>
+      <div class="adminTopbar__sub">Управление плитками каталога</div>
+    </div>
+
+    <div class="topbar__actions adminTopbar__actions">
+      <a class="linkBtn is-active" href="admin-tiles.html">Плитки</a>
+      <a class="linkBtn" href="admin-products.html">Товары</a>
+      <a class="linkBtn" href="admin-orders.html">Заказы</a>
+      <a class="linkBtn" href="admin-seller-requests.html">Запросы продавцов</a>
+      <a class="linkBtn" href="index.html">Главная</a>
+      <a class="linkBtn" href="profile.html">Профиль</a>
+    </div>
+  </div>
+</header>
+<main class="container admWrap">
+  <section class="admCard" id="admTiles">
+    <div class="admHero">
+  <div>
+    <h1 class="admTitle">Плитки каталога</h1>
+    <div class="muted admHero__sub">Создавай, редактируй и упорядочивай плитки категорий.</div>
+  </div>
+  <div class="admHero__status" id="admGuardText">Проверка доступа…</div>
+</div>
+
+    <div class="grid2">
+      <div class="field">
+        <div class="label">Раздел</div>
+        <select class="input js-nice-select" data-nice-select id="catSection">
+          <option value="Игры">Игры</option>
+          <option value="Приложения">Приложения</option>
+          <option value="Мобильные игры">Мобильные игры</option>
+        </select>
+      </div>
+      <div class="field">
+        <div class="label">Название плитки</div>
+        <input class="input" id="catTitle" placeholder="Steam" />
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="field">
+        <div class="label">Slug (уникально)</div>
+        <input class="input" id="catSlug" placeholder="steam" />
+      </div>
+      <div class="field">
+        <div class="label">Emoji</div>
+        <input class="input" id="catEmoji" placeholder="🕹️" />
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="label">Иконка плитки (файл)</div>
+      <div class="uploadBox" id="catUploadBox">
+        <div class="muted">Перетащи файл сюда или нажми “Выбрать”</div>
+        <div class="row" style="margin-top:10px;">
+          <button class="btn" id="catPickBtn" type="button">Выбрать файл</button>
+          <button class="btn" id="catRemoveIconBtn" type="button">Удалить иконку</button>
+          <input type="file" id="catFileInput" accept="image/*" hidden />
+          <div class="muted" id="catIconText">Иконка не выбрана</div>
+        </div>
+        <img id="catIconPreview" alt="" class="catPreview" style="display:none;" />
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="field">
+        <div class="label">Порядок (sort)</div>
+        <input class="input" id="catSort" placeholder="10" inputmode="numeric" />
+      </div>
+      <div class="field">
+        <div class="label">Активна</div>
+        <select class="input js-nice-select" data-nice-select id="catActive">
+          <option value="1">Да</option>
+          <option value="0">Нет</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+  <button class="btn btn--primary" id="catAddBtn" type="button">Добавить плитку</button>
+  <button class="btn" id="catReloadBtn" type="button">Обновить список</button>
+  <button class="btn" id="catSaveOrderBtn" type="button">Сохранить порядок</button>
+  <button class="btn" id="catCancelEditBtn" type="button" style="display:none;">Отмена</button>
+  <div class="muted" id="catNote"></div>
+</div>
+
+<div class="admToolbar admToolbar--searchOnly">
+  <div class="field admToolbar__wide">
+    <div class="label">Поиск</div>
+    <input class="input" id="catSearch" placeholder="ID, название, slug, раздел" />
+  </div>
+</div>
+
+<div class="admToolbar admToolbar--filters">
+  <div class="field">
+    <div class="label">Раздел</div>
+    <select class="input js-nice-select" data-nice-select id="catFilterSection">
+      <option value="">Все разделы</option>
+      <option value="Игры">Игры</option>
+      <option value="Приложения">Приложения</option>
+      <option value="Мобильные игры">Мобильные игры</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <div class="label">Статус</div>
+    <select class="input js-nice-select" data-nice-select id="catFilterActive">
+      <option value="">Все плитки</option>
+      <option value="1">Только активные</option>
+      <option value="0">Только скрытые</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <div class="label">Сортировка</div>
+    <select class="input js-nice-select" data-nice-select id="catSortView">
+      <option value="section">По разделу</option>
+      <option value="sort">По sort</option>
+      <option value="title">По названию</option>
+      <option value="new">Сначала новые</option>
+      <option value="old">Сначала старые</option>
+    </select>
+  </div>
+
+  <div class="field admToolbar__action">
+    <button class="btn btn--ghost" id="catFiltersResetBtn" type="button">Сбросить фильтры</button>
+  </div>
+</div>
+
+<div class="muted" id="catMeta">Найдено плиток: 0</div>
+
+<div class="list" id="catList"></div>
+<div class="admPagination" id="catPagination"></div>
+  </section>
+</main>
+<script src="js/shared/utils/helpers.js"></script>
+<script src="js/shared/api/client.js"></script>
+<script src="js/ui/nice-select.js"></script>
+<script src="js/admin/tiles-page.js"></script>
+</body>
+</html>

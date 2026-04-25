@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Store — Мои продажи</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/ui.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+  <link rel="stylesheet" href="css/seller.css" />
+</head>
+<body class="sellerDashPage sellerSalesPage">
+<div id="headerMount" data-header="seller"></div>
+<div id="subbarMount" data-subbar="seller"></div>
+
+<main class="container">
+  <div class="admWrap">
+    <div class="admCard sellerSalesCard">
+      <div class="sellerSalesHead">
+        <div>
+          <h1 class="admTitle">Мои продажи</h1>
+          <div class="muted sellerSalesHead__sub">Покупатели, комментарии, статусы и история продаж твоих товаров.</div>
+        </div>
+        <div class="sellerSalesStats">
+          <div class="sellerSalesStat"><span>Всего продаж</span><b id="salesTotal">0</b></div>
+          <div class="sellerSalesStat"><span>Новых продаж</span><b id="salesNew">0</b></div>
+        </div>
+      </div>
+
+      <div class="sellerProductsNote muted" id="salesNote"></div>
+
+      <section class="sellerProductsSection">
+        <div class="sellerSalesSearchRow">
+          <div class="field">
+            <label class="label">Поиск</label>
+            <input class="input" id="salesSearch" placeholder="Заказ, товар, покупатель, email" />
+          </div>
+        </div>
+
+        <div class="sellerSalesFiltersRow">
+          <div class="field">
+            <label class="label">Статус</label>
+            <select class="input js-nice-select" data-nice-select id="salesStatusFilter">
+              <option value="all">Все продажи</option>
+              <option value="pending">Новые</option>
+              <option value="paid">Оплаченные</option>
+              <option value="shipped">Отправленные</option>
+              <option value="delivered">Завершённые</option>
+              <option value="cancelled">Отменённые</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="label">Сортировка</label>
+            <select class="input js-nice-select" data-nice-select id="salesSort">
+              <option value="new">Сначала новые</option>
+              <option value="old">Сначала старые</option>
+              <option value="sum_desc">Сначала дорогие</option>
+              <option value="buyer">По покупателю</option>
+            </select>
+          </div>
+          <div class="sellerSalesFiltersRow__actions">
+            <button class="btn btn--ghost" type="button" id="salesResetBtn">Сбросить фильтры</button>
+          </div>
+        </div>
+
+        <div class="sellerProductsListHead">
+          <div class="sellerSalesMeta muted" id="salesMeta">Показано 0-0 из 0</div>
+        </div>
+        <div class="list" id="salesList"></div>
+        <div class="admPagination" id="salesPagination"></div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<script src="js/shared/utils/helpers.js"></script>
+<script src="js/shared/api/client.js"></script>
+<script src="js/core/auth.js"></script>
+<script src="js/core/storage.js"></script>
+<script src="js/components/header/header-auth.js"></script>
+<script src="js/components/header/header-ui.js"></script>
+<script src="js/components/header/header.js"></script>
+<script src="js/ui/nice-select.js"></script>
+<script src="js/seller/sales.js"></script>
+</body>
+</html>

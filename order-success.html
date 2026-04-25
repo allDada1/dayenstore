@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Store — Заказ оформлен</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/ui.css" />
+  <link rel="stylesheet" href="css/order-success.css" />
+</head>
+<body>
+  <div id="headerMount" data-header="account"></div>
+  <div id="subbarMount" data-subbar="none"></div>
+
+  <main class="container ok">
+    <section class="panel">
+      <div class="badgeOk">✓</div>
+      <h1 class="h1">Заказ оформлен</h1>
+      <p class="sub">Оплата успешно принята. Заказ уже есть в истории покупок, и теперь оттуда можно смотреть детали или повторять покупку.</p>
+
+      <div class="box">
+        <div class="row"><span class="k">Номер заказа</span><span class="v" id="orderSuccessId">—</span></div>
+        <div class="row"><span class="k">Статус</span><span class="v" id="orderSuccessStatus">paid</span></div>
+      </div>
+
+      <div class="actions">
+        <a class="btn btn--primary" id="orderSuccessOpen" href="orders.html">К заказам</a>
+        <a class="btn" href="index.html">На главную</a>
+      </div>
+
+      <div class="tiny">Если позже добавим реальную оплату, эта страница останется финальным шагом только после успешного подтверждения платежа.</div>
+    </section>
+  </main>
+
+  <script>
+    const sp = new URLSearchParams(location.search);
+    const id = sp.get("id");
+    document.getElementById("orderSuccessId").textContent = id ? `#${id}` : "—";
+    document.getElementById("orderSuccessOpen").href = id ? `orders.html#order-${id}` : "orders.html";
+  </script>
+  <script src="js/shared/api/client.js"></script>
+  <script src="js/core/auth.js"></script>
+  <script src="js/components/header/header-auth.js"></script>
+  <script src="js/components/header/header-ui.js"></script>
+  <script src="js/components/header/header.js"></script>
+</body>
+</html>
