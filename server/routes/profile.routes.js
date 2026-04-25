@@ -1,7 +1,7 @@
 const express = require("express");
 const { ok, badRequest, notFound, conflict, dbError, serverError } = require("../utils/http");
 const { parseEnum, parseOptionalString, parseRequiredString } = require("../utils/validation");
-const { buildUploadedImageUrl } = require("../utils/upload");
+const { uploadImageFile } = require("../services/media-storage");
 
 function createProfileRouter({ pool, authRequired, upload, attachImagesToProducts, withProductStats }) {
   const router = express.Router();
@@ -120,7 +120,7 @@ function createProfileRouter({ pool, authRequired, upload, attachImagesToProduct
     try {
       if (!req.file) return badRequest(res, "missing_file");
 
-      const avatarUrl = buildUploadedImageUrl(req.file);
+      const avatarUrl = await uploadImageFile(req.file, { folder: "avatars", publicIdPrefix: "avatar" });
       const updated = await pool.query(
         `UPDATE users
             SET avatar_url = $1

@@ -15,6 +15,10 @@ Recommended env values:
 - `DATABASE_SSL=true`
 - `APP_BASE_URL=https://your-site.netlify.app`
 - `UPLOAD_STORAGE_MODE=inline`
+- `CLOUDINARY_CLOUD_NAME=...`
+- `CLOUDINARY_API_KEY=...`
+- `CLOUDINARY_API_SECRET=...`
+- `CLOUDINARY_FOLDER=dayenstore`
 
 ## Migrations
 - `npm run migrate`
@@ -27,4 +31,5 @@ Recommended env values:
 - In Netlify, add the same env variables from `server/.env.example`.
 
 ## Uploads
-On Netlify, uploads use inline `data:` URLs so the app does not depend on a persistent filesystem. This is deployment-safe, but large images are not ideal; keeping product and avatar images compressed is recommended.
+If Cloudinary env variables are configured, uploads are stored in Cloudinary and the database keeps normal HTTPS image URLs.
+If Cloudinary is not configured, the app falls back to inline `data:` URLs.
