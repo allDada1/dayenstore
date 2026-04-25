@@ -149,6 +149,7 @@ async function applySchemaUpdates() {
   await pool.query(`ALTER TABLE users ADD COLUMN IF NOT EXISTS nickname TEXT;`);
   await pool.query(`ALTER TABLE users ADD COLUMN IF NOT EXISTS avatar_url TEXT NOT NULL DEFAULT '';`);
   await pool.query(`ALTER TABLE users ADD COLUMN IF NOT EXISTS is_seller BOOLEAN NOT NULL DEFAULT FALSE;`);
+  await pool.query(`ALTER TABLE users ADD COLUMN IF NOT EXISTS seller_access BOOLEAN NOT NULL DEFAULT FALSE;`);
   await pool.query(`ALTER TABLE users ADD COLUMN IF NOT EXISTS seller_about TEXT NOT NULL DEFAULT '';`);
   await pool.query(`ALTER TABLE users ADD COLUMN IF NOT EXISTS seller_banner_url TEXT NOT NULL DEFAULT '';`);
   await pool.query(`ALTER TABLE users ADD COLUMN IF NOT EXISTS seller_telegram TEXT NOT NULL DEFAULT '';`);
